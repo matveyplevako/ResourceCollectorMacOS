@@ -148,7 +148,7 @@ public class SMCService {
             case SMCDataType.UI8.rawValue:
                 return Double(val.bytes[0])
             case SMCDataType.UI32.rawValue:
-                return Double(UInt32((val.bytes[0], val.bytes[1], val.bytes[2], val.bytes[3])))
+                return Double(UInt32(bytes: (val.bytes[0], val.bytes[1], val.bytes[2], val.bytes[3])))
             case SMCDataType.SP1E.rawValue:
                 let result: Double = Double(UInt16(val.bytes[0]) * 256 + UInt16(val.bytes[1]))
                 return Double(result / 16384)
@@ -180,13 +180,13 @@ public class SMCService {
                 let intValue: Double = Double(Int(val.bytes[0]) * 256 + Int(val.bytes[1]))
                 return intValue
             case SMCDataType.FLT.rawValue:
-                let value: Float? = Float(Data(val.bytes).toFloat() ?? 0.0)
+                let value: Float? = 0
                 if value != nil {
                     return Double(value!)
                 }
                 return nil
             case SMCDataType.FPE2.rawValue:
-                return Double(Int((val.bytes[0], val.bytes[1])))
+                return Double(Int(fromFPE2: (val.bytes[0], val.bytes[1])))
             default:
                 print("unsupported data type \(val.dataType) for key: \(key)")
                 return nil

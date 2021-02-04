@@ -17,12 +17,18 @@ class ViewController: NSViewController {
     @IBOutlet weak var cpuLabel: NSTextField!
     
     var readerCPU: CPUStats = CPUStats()
-    var readerGPUI: GPUStats = GPUStats()
+    var readerGPU: GPUStats = GPUStats()
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        self.readerCPU = CPUStats()
+        readerCPU.read { topProcesses in
+            topProcesses.forEach { process in
+                print(process)
+//                print("Name: \(String(describing: process.name)) Usage: \(process.usage)")
+            }
+        }
     }
 
     override var representedObject: Any? {
