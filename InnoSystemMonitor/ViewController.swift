@@ -18,6 +18,7 @@ class ViewController: NSViewController {
     
     var readerCPU: CPUStats = CPUStats()
     var readerGPU: GPUStats = GPUStats()
+    var readerRAM: RAMStats = RAMStats()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,16 @@ class ViewController: NSViewController {
                 print("GPU Utilization: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
             }
         }
+        
+        readerRAM.read { ramUsage in
+            print(ramUsage)
+        }
+    }
+}
+
+extension Double {
+    func readableSize() {
+        
     }
 }
 

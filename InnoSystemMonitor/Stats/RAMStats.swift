@@ -48,93 +48,7 @@ public struct Swap {
     var free: Double
 }
 
-public class RAM {
-    private var usageReader: UsageReader? = nil
-    private var processReader: ProcessReader? = nil
-    
-    public init(_ store: UnsafePointer<Store>) {
-        self.settingsView = Settings("RAM", store: store)
-        self.popupView = Popup("RAM", store: store)
-        
-        super.init(
-            store: store,
-            popup: self.popupView,
-            settings: self.settingsView
-        )
-        guard self.available else { return }
-        
-        self.settingsView.setInterval = { [unowned self] value in
-            self.processReader?.read()
-            self.usageReader?.setInterval(value)
-        }
-        
-        self.usageReader = UsageReader()
-        self.processReader = ProcessReader(self.config.name, store: store)
-        
-        self.settingsView.callbackWhenUpdateNumberOfProcesses = {
-            self.popupView.numberOfProcessesUpdated()
-            DispatchQueue.global(qos: .background).async {
-                self.processReader?.read()
-            }
-        }
-        
-        self.usageReader?.readyCallback = { [unowned self] in
-            self.readyHandler()
-        }
-        self.usageReader?.callbackHandler = { [unowned self] value in
-            self.loadCallback(value)
-        }
-        
-        self.processReader?.callbackHandler = { [unowned self] value in
-            if let list = value {
-                self.popupView.processCallback(list)
-            }
-        }
-        
-        if let reader = self.usageReader {
-            self.addReader(reader)
-        }
-        if let reader = self.processReader {
-            self.addReader(reader)
-        }
-    }
-    
-    private func loadCallback(_ raw: RAM_Usage?) {
-        guard raw != nil, let value = raw else {
-            return
-        }
-        
-        self.popupView.loadCallback(value)
-        if let widget = self.widget as? Mini {
-            widget.setValue(value.usage)
-            widget.setPressure(value.pressureLevel)
-        }
-        if let widget = self.widget as? LineChart {
-            widget.setValue(value.usage)
-            widget.setPressure(value.pressureLevel)
-        }
-        if let widget = self.widget as? BarChart {
-            widget.setValue([value.usage])
-            widget.setPressure(value.pressureLevel)
-        }
-        if let widget = self.widget as? PieChart {
-            let total: Double = value.total
-            widget.setValue([
-                circle_segment(value: value.app/total, color: NSColor.systemBlue),
-                circle_segment(value: value.wired/total, color: NSColor.systemOrange),
-                circle_segment(value: value.compressed/total, color: NSColor.systemPink)
-            ])
-        }
-        if let widget = self.widget as? MemoryWidget {
-            let free = Units(bytes: Int64(value.free)).getReadableMemory()
-            let used = Units(bytes: Int64(value.used)).getReadableMemory()
-            widget.setValue((free, used))
-        }
-    }
-}
-
-
-class UsageReader{
+class RAMStats {
     public var totalSize: Double = 0
     
     public func setup() {
@@ -211,53 +125,53 @@ class UsageReader{
             return
         }
         
-        os_log(.error, log: log, "host_statistics64(): %s", "\((String(cString: mach_error_string(result), encoding: String.Encoding.ascii) ?? "unknown error"))")
+//        os_log(.error, log: log, "host_statistics64(): %s", "\((String(cString: mach_error_string(result), encoding: String.Encoding.ascii) ?? "unknown error"))")
     }
 }
 
 public class ProcessReader {
-    private let store: UnsafePointer<Store>
-    private let title: String
-    
-    private var numberOfProcesses: Int {
-        get {
-            return self.store.pointee.int(key: "\(self.title)_processes", defaultValue: 8)
-        }
-    }
-    
-    init(_ title: String, store: UnsafePointer<Store>) {
-        self.title = title
-        self.store = store
-        super.init()
-    }
-    
-    public override func setup() {
-        self.popup = true
-    }
-    
-    public override func read() {
-        if self.numberOfProcesses == 0 {
-            return
-        }
-        
-        
-        
-        do {
-            try task.run()
-        } catch let error {
-            os_log(.error, log: log, "top(): %s", "\(error.localizedDescription)")
-            return
-        }
-        
+//    private let store: UnsafePointer<Store>
+//    private let title: String
+//
+//    private var numberOfProcesses: Int {
+//        get {
+//            return self.store.pointee.int(key: "\(self.title)_processes", defaultValue: 8)
+//        }
+//    }
+//
+//    init(_ title: String, store: UnsafePointer<Store>) {
+//        self.title = title
+//        self.store = store
+//        super.init()
+//    }
+//
+//    public override func setup() {
+//        self.popup = true
+//    }
+//
+    public func read(callback: @escaping ([TopProcess]) -> ()) {
+//        if self.numberOfProcesses == 0 {
+//            return
+//        }
+
+        let outputPipe = Pipe()
+
+//        do {
+//            try task.run()
+//        } catch let error {
+//            os_log(.error, log: log, "top(): %s", "\(error.localizedDescription)")
+//            return
+//        }
+
         let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-        let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
+//        let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(decoding: outputData, as: UTF8.self)
-        _ = String(decoding: errorData, as: UTF8.self)
-        
-        if output.isEmpty {
-            return
-        }
-        
+//        _ = String(decoding: errorData, as: UTF8.self)
+//
+//        if output.isEmpty {
+//            return
+//        }
+
         var processes: [TopProcess] = []
         output.enumerateLines { (line, _) -> () in
             if line.matches("^\\d+ +.* +\\d+[A-Z]*\\+?\\-? *$") {
@@ -266,11 +180,11 @@ public class ProcessReader {
                 let usageString = str.suffix(5)
                 var command = str.replacingOccurrences(of: pidString, with: "")
                 command = command.replacingOccurrences(of: usageString, with: "")
-                
+
                 if let regex = try? NSRegularExpression(pattern: " (\\+|\\-)*$", options: .caseInsensitive) {
                     command = regex.stringByReplacingMatches(in: command, options: [], range: NSRange(location: 0, length:  command.count), withTemplate: "")
                 }
-                
+
                 let pid = Int(pidString.filter("01234567890.".contains)) ?? 0
                 var usage = Double(usageString.filter("01234567890.".contains)) ?? 0
                 if usageString.contains("G") {
@@ -278,19 +192,19 @@ public class ProcessReader {
                 } else if usageString.contains("K") {
                     usage /= 1024 // apply kilobyte divider
                 }
-                
+
                 var name: String? = nil
                 var icon: NSImage? = nil
                 if let app = NSRunningApplication(processIdentifier: pid_t(pid) ) {
                     name = app.localizedName ?? nil
                     icon = app.icon
                 }
-                
+
                 let process = TopProcess(pid: pid, command: command, name: name, usage: usage * Double(1024 * 1024), icon: icon)
                 processes.append(process)
             }
         }
-        
+
         callback(processes)
     }
 }
