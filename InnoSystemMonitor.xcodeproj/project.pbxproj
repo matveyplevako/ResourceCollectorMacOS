@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA1518F125CC0C8C0005A9A2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1518F025CC0C8C0005A9A2 /* Extensions.swift */; };
 		BA219C7125C83AC100E73048 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA219C7025C83AC100E73048 /* AppDelegate.swift */; };
 		BA219C7325C83AC100E73048 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA219C7225C83AC100E73048 /* ViewController.swift */; };
 		BA219C7525C83AC300E73048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA219C7425C83AC300E73048 /* Assets.xcassets */; };
 		BA219C7825C83AC300E73048 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA219C7625C83AC300E73048 /* Main.storyboard */; };
-		F365235F25CC07DD00DD6204 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365235E25CC07DD00DD6204 /* Extensions.swift */; };
 		F365236625CC07EF00DD6204 /* CPUStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236225CC07EF00DD6204 /* CPUStats.swift */; };
 		F365236725CC07EF00DD6204 /* Helpres.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236325CC07EF00DD6204 /* Helpres.swift */; };
 		F365236825CC07EF00DD6204 /* GPUStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236425CC07EF00DD6204 /* GPUStats.swift */; };
@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA1518F025CC0C8C0005A9A2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BA219C6D25C83AC100E73048 /* InnoSystemMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnoSystemMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA219C7025C83AC100E73048 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA219C7225C83AC100E73048 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		BA219C7725C83AC300E73048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA219C7925C83AC300E73048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA219C7A25C83AC300E73048 /* InnoSystemMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InnoSystemMonitor.entitlements; sourceTree = "<group>"; };
-		F365235E25CC07DD00DD6204 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../Extensions.swift; sourceTree = "<group>"; };
 		F365236225CC07EF00DD6204 /* CPUStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUStats.swift; sourceTree = "<group>"; };
 		F365236325CC07EF00DD6204 /* Helpres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpres.swift; sourceTree = "<group>"; };
 		F365236425CC07EF00DD6204 /* GPUStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUStats.swift; sourceTree = "<group>"; };
@@ -65,7 +65,6 @@
 			children = (
 				F365236125CC07EF00DD6204 /* Stats */,
 				BA219C7025C83AC100E73048 /* AppDelegate.swift */,
-				F365235E25CC07DD00DD6204 /* Extensions.swift */,
 				BA219C7225C83AC100E73048 /* ViewController.swift */,
 				BA219C7425C83AC300E73048 /* Assets.xcassets */,
 				BA219C7625C83AC300E73048 /* Main.storyboard */,
@@ -82,6 +81,7 @@
 				F365236325CC07EF00DD6204 /* Helpres.swift */,
 				F365236425CC07EF00DD6204 /* GPUStats.swift */,
 				F365236525CC07EF00DD6204 /* SMCDataType.swift */,
+				BA1518F025CC0C8C0005A9A2 /* Extensions.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -157,11 +157,11 @@
 			files = (
 				F365236625CC07EF00DD6204 /* CPUStats.swift in Sources */,
 				BA219C7325C83AC100E73048 /* ViewController.swift in Sources */,
-				F365235F25CC07DD00DD6204 /* Extensions.swift in Sources */,
 				BA219C7125C83AC100E73048 /* AppDelegate.swift in Sources */,
 				F365236925CC07EF00DD6204 /* SMCDataType.swift in Sources */,
 				F365236825CC07EF00DD6204 /* GPUStats.swift in Sources */,
 				F365236725CC07EF00DD6204 /* Helpres.swift in Sources */,
+				BA1518F125CC0C8C0005A9A2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
