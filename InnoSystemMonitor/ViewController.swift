@@ -33,13 +33,13 @@ class ViewController: NSViewController {
             topProcesses.sorted { processA, processB in
                 processA.usage > processB.usage
             }.prefix(10).forEach { process in
-                print("Name: \(process.name ?? process.command)\t Usage: \(process.usage)")
+                print("Name: \(process.name ?? process.command)\t Usage: \(process.usage)%")
             }
         }
         
         readerGPU.read { cpuS in
-            cpuS.list.forEach { cpu in
-//                print(cpu)
+            cpuS.list.forEach { gpu in
+                print("GPU Utilization: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
             }
         }
     }
