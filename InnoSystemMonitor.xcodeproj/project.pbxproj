@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA1518F125CC0C8C0005A9A2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1518F025CC0C8C0005A9A2 /* Extensions.swift */; };
+		BA1518F725CC1F260005A9A2 /* RAMStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1518F625CC1F260005A9A2 /* RAMStats.swift */; };
 		BA219C7125C83AC100E73048 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA219C7025C83AC100E73048 /* AppDelegate.swift */; };
 		BA219C7325C83AC100E73048 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA219C7225C83AC100E73048 /* ViewController.swift */; };
 		BA219C7525C83AC300E73048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA219C7425C83AC300E73048 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		BA1518F025CC0C8C0005A9A2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BA1518F625CC1F260005A9A2 /* RAMStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMStats.swift; sourceTree = "<group>"; };
 		BA219C6D25C83AC100E73048 /* InnoSystemMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnoSystemMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA219C7025C83AC100E73048 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA219C7225C83AC100E73048 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				F365236425CC07EF00DD6204 /* GPUStats.swift */,
 				F365236525CC07EF00DD6204 /* SMCDataType.swift */,
 				BA1518F025CC0C8C0005A9A2 /* Extensions.swift */,
+				BA1518F625CC1F260005A9A2 /* RAMStats.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA1518F725CC1F260005A9A2 /* RAMStats.swift in Sources */,
 				F365236625CC07EF00DD6204 /* CPUStats.swift in Sources */,
 				BA219C7325C83AC100E73048 /* ViewController.swift in Sources */,
 				BA219C7125C83AC100E73048 /* AppDelegate.swift in Sources */,
