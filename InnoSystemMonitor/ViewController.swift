@@ -17,12 +17,10 @@ class ViewController: NSViewController {
     @IBOutlet weak var cpuLabel: NSTextField!
     
     var readerCPU: CPUStats = CPUStats()
-    var readerGPUI: GPUStats = GPUStats()
-        
+    var readerGPU: GPUStats = GPUStats()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.readerCPU = CPUStats()
     }
 
     override var representedObject: Any? {
@@ -30,14 +28,18 @@ class ViewController: NSViewController {
         }
     }
     
-    func initializeMonitor() {
-        
-    }
     @IBAction func refreshButtonTapped(_ sender: Any) {
         readerCPU.read { topProcesses in
-            topProcesses.forEach { process in
-                print(process)
-//                print("Name: \(String(describing: process.name)) Usage: \(process.usage)")
+            topProcesses.sorted { processA, processB in
+                processA.usage > processB.usage
+            }.prefix(10).forEach { process in
+                print("Name: \(process.name ?? process.command)\t Usage: \(process.usage)%")
+            }
+        }
+        
+        readerGPU.read { cpuS in
+            cpuS.list.forEach { gpu in
+                print("GPU Utilization: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
             }
         }
     }
