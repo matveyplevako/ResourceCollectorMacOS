@@ -315,3 +315,17 @@ public extension CATransaction {
         CATransaction.commit()
     }
 }
+
+
+extension Double {
+    func readableSize() -> String {
+        let sizes = ["B", "KB", "MB", "GB"]
+        var index = 0
+        var convertedValue = self
+        while (convertedValue > 1024 && index < sizes.count - 1) {
+            convertedValue = convertedValue / 1_000
+            index += 1
+        }
+        return "\(NSString(format: "%.1f", convertedValue)) \(sizes[index])"
+    }
+}
