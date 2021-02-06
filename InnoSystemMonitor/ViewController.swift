@@ -30,22 +30,28 @@ class ViewController: NSViewController {
     }
     
     @IBAction func refreshButtonTapped(_ sender: Any) {
-        readerCPU.read { topProcesses in
-            topProcesses.sorted { processA, processB in
-                processA.usage > processB.usage
-            }.prefix(10).forEach { process in
-                print("Name: \(process.name ?? process.command)\t Usage: \(process.usage)%")
-            }
-        }
+//        readerCPU.read { topProcesses in
+//            topProcesses.sorted { processA, processB in
+//                processA.usage > processB.usage
+//            }.prefix(10).forEach { process in
+//                print("Name: \(process.name ?? process.command)\t Usage: \(process.usage)%")
+//            }
+//        }
+//
+//        readerGPU.read { cpuS in
+//            cpuS.list.forEach { gpu in
+//                print("GPU Utilization: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
+//            }
+//        }
         
-        readerGPU.read { cpuS in
-            cpuS.list.forEach { gpu in
-                print("GPU Utilization: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
-            }
-        }
+//        readerRAM.read { ramUsage in
+//            print(ramUsage)
+//        }
         
-        readerRAM.read { ramUsage in
-            print(ramUsage)
+        ProcessReader().read { topProcess in
+            topProcess.forEach { process in
+                print("Name: \(process.name ?? process.command) Usage: \(process.usage)")
+            }
         }
     }
 }
