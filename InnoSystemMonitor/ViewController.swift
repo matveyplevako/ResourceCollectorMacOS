@@ -56,9 +56,4 @@ class ViewController: NSViewController {
     }
 }
 
-extension Double {
-    func readableSize() {
-        
-    }
-}
 
