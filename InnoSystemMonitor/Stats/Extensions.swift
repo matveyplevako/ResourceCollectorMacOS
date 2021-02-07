@@ -1,13 +1,3 @@
-//
-//  extensions.swift
-//  StatsKit
-//
-//  Created by Ivan Abramov on 5/02/2021.
-//  Using Swift 5.0.
-//  Running on macOS 10.15.
-//
-//  Copyright © 2020 Ivan Abramov. All rights reserved.
-//
 
 import Cocoa
 
@@ -277,13 +267,7 @@ extension FourCharCode {
 
 public extension NSColor {
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
-        let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        let scanner = Scanner(string: hexString)
-        if (hexString.hasPrefix("#")) {
-            scanner.scanLocation = 1
-        }
-        var color: UInt32 = 0
-        scanner.scanHexInt32(&color)
+        let color: UInt32 = 0
         let mask = 0x000000FF
         let r = Int(color >> 16) & mask
         let g = Int(color >> 8) & mask
