@@ -1,10 +1,3 @@
-//
-//  SMCDataType.swift
-//  DataCollector
-//
-//  Created by Иван Абрамов on 04.02.2021.
-//
-
 import Foundation
 import IOKit
 

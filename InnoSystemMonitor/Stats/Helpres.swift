@@ -1,10 +1,3 @@
-//
-//  Helpres.swift
-//  DataCollector
-//
-//  Created by Иван Абрамов on 04.02.2021.
-//
-
 import Foundation
 
 public func fetchIOService(_ name: String) -> [NSDictionary]? {

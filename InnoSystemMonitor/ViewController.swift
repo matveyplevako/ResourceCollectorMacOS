@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  DataCollector
-//
-//  Created by Иван Абрамов on 01.02.2021.
-//
-
 import Cocoa
 import Foundation
 import AppKit
