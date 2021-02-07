@@ -1,3 +1,4 @@
+
 import Cocoa
 
 extension String: LocalizedError {
@@ -258,9 +259,9 @@ extension FourCharCode {
     
     func toString() -> String {
         return String(describing: UnicodeScalar(self >> 24 & 0xff)!) +
-               String(describing: UnicodeScalar(self >> 16 & 0xff)!) +
-               String(describing: UnicodeScalar(self >> 8  & 0xff)!) +
-               String(describing: UnicodeScalar(self       & 0xff)!)
+            String(describing: UnicodeScalar(self >> 16 & 0xff)!) +
+            String(describing: UnicodeScalar(self >> 8  & 0xff)!) +
+            String(describing: UnicodeScalar(self       & 0xff)!)
     }
 }
 
@@ -296,5 +297,19 @@ public extension CATransaction {
         CATransaction.setAnimationDuration(0)
         closure()
         CATransaction.commit()
+    }
+}
+
+
+extension Double {
+    func readableSize() -> String {
+        let sizes = ["B", "KB", "MB", "GB"]
+        var index = 0
+        var convertedValue = self
+        while (convertedValue > 1024 && index < sizes.count - 1) {
+            convertedValue = convertedValue / 1_000
+            index += 1
+        }
+        return "\(NSString(format: "%.1f", convertedValue)) \(sizes[index])"
     }
 }
