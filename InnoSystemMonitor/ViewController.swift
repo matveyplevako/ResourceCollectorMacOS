@@ -20,6 +20,9 @@ class ViewController: NSViewController {
     var readerGPU: GPUStats = GPUStats()
     var readerRAM: RAMStats = RAMStats()
     
+    var stats = 0.0
+    var count = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -41,6 +44,12 @@ class ViewController: NSViewController {
             cpuS.list.forEach { gpu in
                 print("GPU Utilization: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
             }
+        
+    }
+    
+    func createTimer(withTimeInterval timeInterval: TimeInterval, andClojure clojure: @escaping () -> Void) {
+        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { timer in
+            clojure()
         }
         
         readerRAM.read { topProcess in
