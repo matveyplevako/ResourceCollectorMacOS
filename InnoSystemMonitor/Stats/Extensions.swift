@@ -4,7 +4,7 @@
 //
 //  Created by Iurii Zarubin on 07/02/2021.
 //  Using Swift 5.0.
-//  Running on macOS 10.15.
+//  Running on macOS 11.1.
 //
 
 import Cocoa
