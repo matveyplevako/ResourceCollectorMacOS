@@ -52,7 +52,7 @@ class CPUStats {
 		}
 		
 		var index = 0
-		var processes: [TopProcess] = []
+		var processes: [TopProcess] = []
 		output.enumerateLines { (line, stop) -> () in
 			if index != 0 {
 				var str = line.trimmingCharacters(in: .whitespaces)
