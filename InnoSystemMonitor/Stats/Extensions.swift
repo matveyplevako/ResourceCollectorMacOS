@@ -7,8 +7,6 @@
 //  Running on macOS 11.1.
 //
 
-//
-
 import Cocoa
 
 extension String: LocalizedError {
@@ -277,7 +275,7 @@ extension FourCharCode {
 
 public extension NSColor {
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
-        var color: UInt32 = 0
+        let color: UInt32 = 0
         let mask = 0x000000FF
         let r = Int(color >> 16) & mask
         let g = Int(color >> 8) & mask

@@ -32,10 +32,6 @@ class CPUStats {
     }
     
     public func read(callback: @escaping ([TopProcess]) -> Void) {
-//        if self.numberOfProcesses == 0 {
-//            return
-//        }
-        
         let task = Process()
         task.launchPath = "/bin/ps"
         task.arguments = ["-Aceo pid,pcpu,comm", "-r"]
@@ -49,8 +45,6 @@ class CPUStats {
         do {
             try task.run()
         } catch let error {
-//            os_log(.error, log: log, "error read ps: %s", "\(error.localizedDescription)")
-//            os_log(.error)
             print("Eror: \(error.localizedDescription)")
             return
         }
@@ -86,7 +80,6 @@ class CPUStats {
                 processes.append(TopProcess(pid: pid, command: command, name: name, usage: usage, icon: icon))
             }
             
-//            if index == self.numberOfProcesses { stop = true }
             index += 1
         }
         
