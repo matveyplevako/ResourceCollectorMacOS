@@ -87,13 +87,11 @@ class GPUStats {
         accelerators.forEach { (accelerator: NSDictionary) in
             guard let IOClass = accelerator.object(forKey: "IOClass") as? String else {
                 print("Error: IOClass not found")
-//                os_log(.error, log: log, "IOClass not found")
                 return
             }
             
             guard let stats = accelerator["PerformanceStatistics"] as? [String:Any] else {
                 print("PerformanceStatistics not found")
-//                os_log(.error, log: log, "PerformanceStatistics not found")
                 return
             }
             
