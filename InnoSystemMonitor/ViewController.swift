@@ -38,19 +38,18 @@ class ViewController: NSViewController {
                 print("GPU Utilization: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
             }
         
-    }
-    
-    func createTimer(withTimeInterval timeInterval: TimeInterval, andClojure clojure: @escaping () -> Void) {
-        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { timer in
-            clojure()
         }
+    
+        func createTimer(withTimeInterval timeInterval: TimeInterval, andClojure clojure: @escaping () -> Void) {
+            Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { timer in
+                clojure()
+            }
         
-        readerRAM.read { topProcess in
-            topProcess.forEach { process in
-                print("Name: \(process.name ?? process.command) Usage: \(process.usage.readableSize())")
+            readerRAM.read { topProcess in
+                topProcess.forEach { process in
+                    print("Name: \(process.name ?? process.command) Usage: \(process.usage.readableSize())")
+                }
             }
         }
     }
 }
-
-
