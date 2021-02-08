@@ -16,15 +16,6 @@ class ViewController: NSViewController {
 	var stats = 0.0
 	var count = 0
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
-	
-	override var representedObject: Any? {
-		didSet {
-		}
-	}
-	
 	@IBAction func refreshButtonTapped(_ sender: Any) {
 		print("\nCPU Utilization")
 		

@@ -7,7 +7,6 @@ public struct TopProcess {
 	public var command: String
 	public var name: String?
 	public var usage: Double
-	public var icon: NSImage?
 	
 	public init(pid: Int, command: String, name: String?, usage: Double) {
 		self.pid = pid
@@ -18,11 +17,6 @@ public struct TopProcess {
 }
 
 class CPUStats {
-	
-	init() {
-		
-	}
-	
 	public func read(callback: @escaping ([TopProcess]) -> Void) {
 		let task = Process()
 		task.launchPath = "/bin/ps"
