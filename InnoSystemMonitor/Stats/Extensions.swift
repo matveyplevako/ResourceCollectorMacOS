@@ -2,11 +2,11 @@
 //  extensions.swift
 //  StatsKit
 //
-//  Created by Serhiy Mytrovtsiy on 10/04/2020.
+//  Created by Ivan Abramov on 5/02/2021.
 //  Using Swift 5.0.
 //  Running on macOS 10.15.
 //
-//  Copyright © 2020 Serhiy Mytrovtsiy. All rights reserved.
+//  Copyright © 2020 Ivan Abramov. All rights reserved.
 //
 
 import Cocoa
@@ -269,9 +269,9 @@ extension FourCharCode {
     
     func toString() -> String {
         return String(describing: UnicodeScalar(self >> 24 & 0xff)!) +
-               String(describing: UnicodeScalar(self >> 16 & 0xff)!) +
-               String(describing: UnicodeScalar(self >> 8  & 0xff)!) +
-               String(describing: UnicodeScalar(self       & 0xff)!)
+            String(describing: UnicodeScalar(self >> 16 & 0xff)!) +
+            String(describing: UnicodeScalar(self >> 8  & 0xff)!) +
+            String(describing: UnicodeScalar(self       & 0xff)!)
     }
 }
 

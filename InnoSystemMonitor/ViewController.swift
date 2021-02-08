@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 
 class ViewController: NSViewController {
-
+    
     @IBOutlet weak var energyLabel: NSTextField!
     @IBOutlet weak var memoryLabel: NSTextField!
     @IBOutlet weak var gpulabel: NSTextField!
@@ -20,10 +20,13 @@ class ViewController: NSViewController {
     var readerGPU: GPUStats = GPUStats()
     var readerRAM: RAMStats = RAMStats()
     
+    var stats = 0.0
+    var count = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override var representedObject: Any? {
         didSet {
         }
@@ -37,15 +40,22 @@ class ViewController: NSViewController {
                 print("Name: \(process.name ?? process.command)\t Usage: \(process.usage)%")
             }
         }
-        
         readerGPU.read { cpuS in
             cpuS.list.forEach { gpu in
                 print("GPU Utilization: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
             }
+        
+    }
+    
+    func createTimer(withTimeInterval timeInterval: TimeInterval, andClojure clojure: @escaping () -> Void) {
+        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { timer in
+            clojure()
         }
         
-        readerRAM.read { ramUsage in
-            print(ramUsage)
+        readerRAM.read { topProcess in
+            topProcess.forEach { process in
+                print("Name: \(process.name ?? process.command) Usage: \(process.usage.readableSize())")
+            }
         }
     }
 }
