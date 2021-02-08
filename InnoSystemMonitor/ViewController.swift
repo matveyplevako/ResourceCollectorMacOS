@@ -26,6 +26,8 @@ class ViewController: NSViewController {
 	}
 	
 	@IBAction func refreshButtonTapped(_ sender: Any) {
+		print("\nCPU Utilization")
+		
 		readerCPU.read { topProcesses in
 			topProcesses.sorted { processA, processB in
 				processA.usage > processB.usage
@@ -33,22 +35,20 @@ class ViewController: NSViewController {
 				print("Name: \(process.name ?? process.command)\t Usage: \(process.usage)%")
 			}
 		}
+		
+		print("\n")
+		
 		readerGPU.read { cpuS in
 			cpuS.list.forEach { gpu in
 				print("GPU Utilization: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
 			}
-			
 		}
 		
-		func createTimer(withTimeInterval timeInterval: TimeInterval, andClojure clojure: @escaping () -> Void) {
-			Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { timer in
-				clojure()
-			}
-			
-			readerRAM.read { topProcess in
-				topProcess.forEach { process in
-					print("Name: \(process.name ?? process.command) Usage: \(process.usage.readableSize())")
-				}
+		print("\nRAM Utilization")
+		
+		readerRAM.read { topProcess in
+			topProcess.forEach { process in
+				print("Name: \(process.name ?? process.command) Usage: \(process.usage.readableSize())")
 			}
 		}
 	}
