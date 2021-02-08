@@ -37,25 +37,30 @@ class ViewController: NSViewController {
             topProcesses.sorted { processA, processB in
                 processA.usage > processB.usage
             }.prefix(10).forEach { process in
-                print("Name: \(process.name ?? process.command)\t Usage: \(process.usage)%")
+                print("Name: \(process.name ?? process.command)\t CPU Usage: \(process.usage)%")
             }
         }
-        readerGPU.read { cpuS in
-            cpuS.list.forEach { gpu in
-                print("GPU Utilization: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
-            }
         
+        print("\n")
+        
+        readerGPU.read { gpuS in
+            gpuS.list.forEach { gpu in
+                print("Name: \(gpu.model)\t GPU Usage: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
+            }
+        }
+        
+        print("\n")
+        
+        readerRAM.read { topProcesses in
+            topProcesses.forEach { process in
+                print("Name: \(process.name ?? process.command) RAM Usage: \(process.usage.readableSize())")
+            }
+        }
     }
     
     func createTimer(withTimeInterval timeInterval: TimeInterval, andClojure clojure: @escaping () -> Void) {
         Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { timer in
             clojure()
-        }
-        
-        readerRAM.read { topProcess in
-            topProcess.forEach { process in
-                print("Name: \(process.name ?? process.command) Usage: \(process.usage.readableSize())")
-            }
         }
     }
 }
