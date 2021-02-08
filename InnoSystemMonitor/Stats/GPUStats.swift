@@ -8,13 +8,13 @@ class GPUStats {
 	
 	public struct GPU_Info {
 		public let IOClass: String
-		public let gpu_model: String
+		public let gpuModel: String
 
 		public var utilization: Double? = nil
 		
 		init(IOClass: String, model: String) {
 			self.IOClass = IOClass
-			self.gpu_model = model
+			self.gpuModel = model
 		}
 	}
 	
@@ -37,25 +37,25 @@ class GPUStats {
 			}
 			
 			let ioClass = IOClass.lowercased()
-			var gpu_model: String = ""
+			var gpuModel: String = ""
 			
 			let utilization: Int? = stats["Device Utilization %"] as? Int ?? stats["GPU Activity(%)"] as? Int ?? nil
 			
 			if ioClass == "nvaccelerator" || ioClass.contains("nvidia") {
-				gpu_model = "Nvidia Graphics"
+				gpuModel = "Nvidia Graphics"
 			} else if ioClass.contains("amd") {
-				gpu_model = "AMD Graphics"
+				gpuModel = "AMD Graphics"
 			} else {
-				gpu_model = "Intel Graphics"
+				gpuModel = "Intel Graphics"
 			}
 			
-			if self.gpus.list.first(where: { $0.gpu_model == gpu_model }) == nil {
+			if self.gpus.list.first(where: { $0.gpuModel == gpuModel }) == nil {
 				self.gpus.list.append(GPU_Info(
 					IOClass: IOClass,
-					model: gpu_model
+					model: gpuModel
 				))
 			}
-			guard let idx = self.gpus.list.firstIndex(where: { $0.gpu_model == gpu_model }) else {
+			guard let idx = self.gpus.list.firstIndex(where: { $0.gpuModel == gpuModel }) else {
 				return
 			}
 			if let value = utilization {
