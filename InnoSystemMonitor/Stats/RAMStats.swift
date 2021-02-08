@@ -1,28 +1,10 @@
 import Cocoa
 
-
-public struct RAM_Usage: value_t {
+public struct RAM_Usage {
 	var total: Double
-	var used: Double
 	var free: Double
 	
-	var active: Double
-	var inactive: Double
-	var wired: Double
-	var compressed: Double
-	
 	var app: Double
-	var cache: Double
-	var pressure: Double
-	
-	var pressureLevel: Int
-	var swap: Swap
-	
-	public var widget_value: Double {
-		get {
-			return self.usage
-		}
-	}
 	
 	public var usage: Double {
 		get {
@@ -31,20 +13,11 @@ public struct RAM_Usage: value_t {
 	}
 }
 
-public struct Swap {
-	var total: Double
-	var used: Double
-	var free: Double
-}
 
 public class RAMStats {
 	
 	public func read(callback: @escaping ([TopProcess]) -> ()) {
 		let numberOfProcesses = 10
-		
-		if numberOfProcesses == 0 {
-			return
-		}
 		
 		let task = Process()
 		task.launchPath = "/usr/bin/top"
@@ -86,25 +59,17 @@ public class RAMStats {
 				}
 				
 				let pid = Int(pidString.filter("01234567890.".contains)) ?? 0
-				var usage = Double(usageString.filter("01234567890.".contains)) ?? 0
-				if usageString.contains("G") {
-					usage *= 1024 // apply gigabyte multiplier
-				} else if usageString.contains("K") {
-					usage /= 1024 // apply kilobyte divider
-				}
-				
+				let usage = Double(usageString.filter("01234567890.".contains)) ?? 0
+
 				var name: String? = nil
-				var icon: NSImage? = nil
 				if let app = NSRunningApplication(processIdentifier: pid_t(pid) ) {
 					name = app.localizedName ?? nil
-					icon = app.icon
 				}
 				
-				let process = TopProcess(pid: pid, command: command, name: name, usage: usage * Double(1024 * 1024), icon: icon)
+				let process = TopProcess(pid: pid, command: command, name: name, usage: usage * Double(1024 * 1024))
 				processes.append(process)
 			}
 		}
-		
 		callback(processes)
 	}
 }
