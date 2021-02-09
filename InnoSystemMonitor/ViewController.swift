@@ -26,6 +26,8 @@ class ViewController: NSViewController {
     }
     
     @IBAction func refreshButtonTapped(_ sender: Any) {
+		print("\n")
+		
         readerCPU.read { topProcesses in
             topProcesses.sorted { processA, processB in
                 processA.usage > processB.usage
