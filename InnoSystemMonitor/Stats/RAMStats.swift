@@ -50,16 +50,6 @@ public struct Swap {
 
 public class RAMStats: ReaderProtocol {
     
-    func get() -> [TopProcess]? {
-        return type
-    }
-    
-    func set(type: [TopProcess]) {
-        self.type = type
-    }
-    
-    private var type: T?
-    
     public func read(callback: @escaping ([TopProcess]) -> ()) {
         let numberOfProcesses = 10
         

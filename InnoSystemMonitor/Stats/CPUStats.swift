@@ -26,18 +26,10 @@ public struct TopProcess {
 }
 
 class CPUStats: ReaderProtocol {
-    private var type: T?
     
-    func get() -> [TopProcess]? {
-        return type
-    }
+    init() {}
     
-    func set(type: [TopProcess]) {
-        self.type = type
-    }
-    
-    
-    init() {
+    func shit() {
         
     }
     

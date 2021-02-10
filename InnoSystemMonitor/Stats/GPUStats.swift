@@ -13,20 +13,8 @@ public protocol value_t {
 }
 
 class GPUStats: ReaderProtocol {
-    private var type: T?
     
-    func get() -> GPUs? {
-        return type
-    }
-    
-    func set(type: GPUs) {
-        self.type = type
-    }
-    
-    
-    init() {
-        
-    }
+    init() {}
     
     public struct GPUs: value_t {
         public var list: [GPU_Info] = []
@@ -42,11 +30,11 @@ class GPUStats: ReaderProtocol {
         }
     }
     
-    public typealias GPU_type = String
+    public typealias GPUType = String
     
     public struct GPU_Info {
         public let id: String
-        public let type: GPU_type
+        public let type: GPUType
         
         public let IOClass: String
         public var vendor: String? = nil
@@ -60,7 +48,7 @@ class GPUStats: ReaderProtocol {
         public var temperature: Double? = nil
         public var utilization: Double? = nil
         
-        init(type: GPU_type, IOClass: String, vendor: String? = nil, model: String) {
+        init(type: GPUType, IOClass: String, vendor: String? = nil, model: String) {
             self.id = UUID().uuidString
             self.type = type
             self.IOClass = IOClass
@@ -69,7 +57,7 @@ class GPUStats: ReaderProtocol {
         }
     }
     
-    public enum GPU_types: GPU_type {
+    public enum GPU_types: GPUType {
         case unknown = ""
         
         case integrated = "i"
@@ -92,7 +80,6 @@ class GPUStats: ReaderProtocol {
         guard let accelerators = fetchIOService(kIOAcceleratorClassName) else {
             return
         }
-//        var devices = self.devices
         
         accelerators.forEach { (accelerator: NSDictionary) in
             guard let IOClass = accelerator.object(forKey: "IOClass") as? String else {

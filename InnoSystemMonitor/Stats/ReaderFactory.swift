@@ -9,8 +9,6 @@ import Foundation
 
 protocol ReaderProtocol {
     associatedtype T
-    func get() -> T?
-    func set(type: T)
     
     func read(callback: @escaping (T) -> Void)
 }

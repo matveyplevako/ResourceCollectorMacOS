@@ -11,17 +11,9 @@ import AppKit
 
 class ViewController: NSViewController {
     
-    @IBOutlet weak var energyLabel: NSTextField!
-    @IBOutlet weak var memoryLabel: NSTextField!
-    @IBOutlet weak var gpulabel: NSTextField!
-    @IBOutlet weak var cpuLabel: NSTextField!
-    
     var readerCPU: CPUStats
     var readerGPU: GPUStats
     var readerRAM: RAMStats
-    
-    var stats = 0.0
-    var count = 0
     
     required init?(coder aDecoder: NSCoder) {
         self.readerCPU = ReaderFactory.createReader(ofType: .CPU)
