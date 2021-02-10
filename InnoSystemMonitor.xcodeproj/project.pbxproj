@@ -13,6 +13,7 @@
 		BA219C7325C83AC100E73048 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA219C7225C83AC100E73048 /* ViewController.swift */; };
 		BA219C7525C83AC300E73048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA219C7425C83AC300E73048 /* Assets.xcassets */; };
 		BA219C7825C83AC300E73048 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA219C7625C83AC300E73048 /* Main.storyboard */; };
+		F35AB90925D3D34000DC524B /* ReaderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35AB90825D3D34000DC524B /* ReaderFactory.swift */; };
 		F365236625CC07EF00DD6204 /* CPUStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236225CC07EF00DD6204 /* CPUStats.swift */; };
 		F365236725CC07EF00DD6204 /* Helpres.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236325CC07EF00DD6204 /* Helpres.swift */; };
 		F365236825CC07EF00DD6204 /* GPUStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236425CC07EF00DD6204 /* GPUStats.swift */; };
@@ -29,6 +30,7 @@
 		BA219C7725C83AC300E73048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA219C7925C83AC300E73048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA219C7A25C83AC300E73048 /* InnoSystemMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InnoSystemMonitor.entitlements; sourceTree = "<group>"; };
+		F35AB90825D3D34000DC524B /* ReaderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderFactory.swift; sourceTree = "<group>"; };
 		F365236225CC07EF00DD6204 /* CPUStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUStats.swift; sourceTree = "<group>"; };
 		F365236325CC07EF00DD6204 /* Helpres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpres.swift; sourceTree = "<group>"; };
 		F365236425CC07EF00DD6204 /* GPUStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUStats.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				F365236525CC07EF00DD6204 /* SMCDataType.swift */,
 				BA1518F025CC0C8C0005A9A2 /* Extensions.swift */,
 				BA1518F625CC1F260005A9A2 /* RAMStats.swift */,
+				F35AB90825D3D34000DC524B /* ReaderFactory.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				BA219C7325C83AC100E73048 /* ViewController.swift in Sources */,
 				BA219C7125C83AC100E73048 /* AppDelegate.swift in Sources */,
 				F365236925CC07EF00DD6204 /* SMCDataType.swift in Sources */,
+				F35AB90925D3D34000DC524B /* ReaderFactory.swift in Sources */,
 				F365236825CC07EF00DD6204 /* GPUStats.swift in Sources */,
 				F365236725CC07EF00DD6204 /* Helpres.swift in Sources */,
 				BA1518F125CC0C8C0005A9A2 /* Extensions.swift in Sources */,

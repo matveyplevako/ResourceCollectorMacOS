@@ -16,12 +16,20 @@ class ViewController: NSViewController {
     @IBOutlet weak var gpulabel: NSTextField!
     @IBOutlet weak var cpuLabel: NSTextField!
     
-    var readerCPU: CPUStats = CPUStats()
-    var readerGPU: GPUStats = GPUStats()
-    var readerRAM: RAMStats = RAMStats()
+    var readerCPU: CPUStats
+    var readerGPU: GPUStats
+    var readerRAM: RAMStats
     
     var stats = 0.0
     var count = 0
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.readerCPU = ReaderFactory.createReader(ofType: .CPU)
+        self.readerGPU = ReaderFactory.createReader(ofType: .GPU)
+        self.readerRAM = ReaderFactory.createReader(ofType: .RAM)
+        
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

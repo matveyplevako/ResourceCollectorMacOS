@@ -12,7 +12,17 @@ public protocol value_t {
     var widget_value: Double { get }
 }
 
-class GPUStats {
+class GPUStats: ReaderProtocol {
+    private var type: T?
+    
+    func get() -> GPUs? {
+        return type
+    }
+    
+    func set(type: GPUs) {
+        self.type = type
+    }
+    
     
     init() {
         
