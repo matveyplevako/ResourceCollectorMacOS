@@ -96,7 +96,7 @@ class ViewController: NSViewController {
         
         readerGPU.read { gpuS in
             gpuS.list.forEach { gpu in
-                textDescription += "Name: \(gpu.gpuModel)\t GPU Usage: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%"
+                textDescription += "Name: \(gpu.gpuModel)\t GPU Usage: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))% \n"
             }
         }
         
