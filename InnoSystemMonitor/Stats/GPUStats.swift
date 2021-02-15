@@ -1,7 +1,7 @@
 import Foundation
 import Cocoa
 
-class GPUStats {
+class GPUStats: ReaderProtocol {
 	public struct GPUs {
 		public var list: [GPU_Info] = []
 	}

@@ -17,6 +17,7 @@
 		F365236725CC07EF00DD6204 /* Helpres.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236325CC07EF00DD6204 /* Helpres.swift */; };
 		F365236825CC07EF00DD6204 /* GPUStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236425CC07EF00DD6204 /* GPUStats.swift */; };
 		F365236925CC07EF00DD6204 /* SMCDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236525CC07EF00DD6204 /* SMCDataType.swift */; };
+		F39803A725DA690A00B0CEA5 /* ReaderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39803A625DA690A00B0CEA5 /* ReaderFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		F365236325CC07EF00DD6204 /* Helpres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpres.swift; sourceTree = "<group>"; };
 		F365236425CC07EF00DD6204 /* GPUStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUStats.swift; sourceTree = "<group>"; };
 		F365236525CC07EF00DD6204 /* SMCDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMCDataType.swift; sourceTree = "<group>"; };
+		F39803A625DA690A00B0CEA5 /* ReaderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				F365236525CC07EF00DD6204 /* SMCDataType.swift */,
 				BA1518F025CC0C8C0005A9A2 /* Extensions.swift */,
 				BA1518F625CC1F260005A9A2 /* RAMStats.swift */,
+				F39803A625DA690A00B0CEA5 /* ReaderFactory.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				BA219C7325C83AC100E73048 /* ViewController.swift in Sources */,
 				BA219C7125C83AC100E73048 /* AppDelegate.swift in Sources */,
 				F365236925CC07EF00DD6204 /* SMCDataType.swift in Sources */,
+				F39803A725DA690A00B0CEA5 /* ReaderFactory.swift in Sources */,
 				F365236825CC07EF00DD6204 /* GPUStats.swift in Sources */,
 				F365236725CC07EF00DD6204 /* Helpres.swift in Sources */,
 				BA1518F125CC0C8C0005A9A2 /* Extensions.swift in Sources */,
