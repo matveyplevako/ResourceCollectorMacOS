@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  DataCollector
-//
-//  Created by Иван Абрамов on 01.02.2021.
-//
-
 import Cocoa
 import Foundation
 import AppKit
@@ -33,6 +26,8 @@ class ViewController: NSViewController {
     }
     
     @IBAction func refreshButtonTapped(_ sender: Any) {
+		print("\n")
+		
         readerCPU.read { topProcesses in
             topProcesses.sorted { processA, processB in
                 processA.usage > processB.usage
@@ -45,7 +40,7 @@ class ViewController: NSViewController {
         
         readerGPU.read { gpuS in
             gpuS.list.forEach { gpu in
-                print("Name: \(gpu.model)\t GPU Usage: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
+                print("Name: \(gpu.gpuModel)\t GPU Usage: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
             }
         }
         
@@ -64,5 +59,3 @@ class ViewController: NSViewController {
         }
     }
 }
-
-

@@ -1,14 +1,3 @@
-//
-//  readers.swift
-//  Memory
-//
-//  Created by Serhiy Mytrovtsiy on 07/02/2021. we did not stole it
-//  Using Swift 5.0.
-//  Running on macOS 10.15.
-//
-//  Copyright © 2021 Ivan Abramov. All rights reserved.
-//
-
 import Cocoa
 
 
