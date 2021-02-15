@@ -60,7 +60,7 @@ public class RAMStats: ReaderProtocol {
 				
 				let pid = Int(pidString.filter("01234567890.".contains)) ?? 0
 				let usage = Double(usageString.filter("01234567890.".contains)) ?? 0
-				
+
 				var name: String? = nil
 				if let app = NSRunningApplication(processIdentifier: pid_t(pid) ) {
 					name = app.localizedName ?? nil
