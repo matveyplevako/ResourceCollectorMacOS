@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA09EC1C25DB23B200E4D12E /* RAMStatsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09EC1B25DB23B200E4D12E /* RAMStatsTest.swift */; };
 		BA1518F125CC0C8C0005A9A2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1518F025CC0C8C0005A9A2 /* Extensions.swift */; };
 		BA1518F725CC1F260005A9A2 /* RAMStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1518F625CC1F260005A9A2 /* RAMStats.swift */; };
 		BA219C7125C83AC100E73048 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA219C7025C83AC100E73048 /* AppDelegate.swift */; };
 		BA219C7325C83AC100E73048 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA219C7225C83AC100E73048 /* ViewController.swift */; };
 		BA219C7525C83AC300E73048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA219C7425C83AC300E73048 /* Assets.xcassets */; };
 		BA219C7825C83AC300E73048 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA219C7625C83AC300E73048 /* Main.storyboard */; };
+		BA89AF3A25DACB4000F75DF9 /* CPUStatsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89AF3925DACB4000F75DF9 /* CPUStatsTest.swift */; };
 		F365236625CC07EF00DD6204 /* CPUStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236225CC07EF00DD6204 /* CPUStats.swift */; };
 		F365236725CC07EF00DD6204 /* Helpres.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236325CC07EF00DD6204 /* Helpres.swift */; };
 		F365236825CC07EF00DD6204 /* GPUStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236425CC07EF00DD6204 /* GPUStats.swift */; };
@@ -21,7 +23,18 @@
 		F39803AC25DA729400B0CEA5 /* BatteryStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39803AB25DA729400B0CEA5 /* BatteryStats.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BA89AF3025DACAAB00F75DF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA219C6525C83AC100E73048 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA219C6C25C83AC100E73048;
+			remoteInfo = InnoSystemMonitor;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		BA09EC1B25DB23B200E4D12E /* RAMStatsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMStatsTest.swift; sourceTree = "<group>"; };
 		BA1518F025CC0C8C0005A9A2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BA1518F625CC1F260005A9A2 /* RAMStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMStats.swift; sourceTree = "<group>"; };
 		BA219C6D25C83AC100E73048 /* InnoSystemMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnoSystemMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +44,9 @@
 		BA219C7725C83AC300E73048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA219C7925C83AC300E73048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA219C7A25C83AC300E73048 /* InnoSystemMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InnoSystemMonitor.entitlements; sourceTree = "<group>"; };
+		BA89AF2B25DACAAA00F75DF9 /* InnoSystemMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InnoSystemMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA89AF2F25DACAAB00F75DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA89AF3925DACB4000F75DF9 /* CPUStatsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUStatsTest.swift; sourceTree = "<group>"; };
 		F365236225CC07EF00DD6204 /* CPUStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUStats.swift; sourceTree = "<group>"; };
 		F365236325CC07EF00DD6204 /* Helpres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpres.swift; sourceTree = "<group>"; };
 		F365236425CC07EF00DD6204 /* GPUStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUStats.swift; sourceTree = "<group>"; };
@@ -47,6 +63,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BA89AF2825DACAAA00F75DF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -54,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				BA219C6F25C83AC100E73048 /* InnoSystemMonitor */,
+				BA89AF2C25DACAAB00F75DF9 /* InnoSystemMonitorTests */,
 				BA219C6E25C83AC100E73048 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				BA219C6D25C83AC100E73048 /* InnoSystemMonitor.app */,
+				BA89AF2B25DACAAA00F75DF9 /* InnoSystemMonitorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +103,16 @@
 				BA219C7A25C83AC300E73048 /* InnoSystemMonitor.entitlements */,
 			);
 			path = InnoSystemMonitor;
+			sourceTree = "<group>";
+		};
+		BA89AF2C25DACAAB00F75DF9 /* InnoSystemMonitorTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA89AF2F25DACAAB00F75DF9 /* Info.plist */,
+				BA89AF3925DACB4000F75DF9 /* CPUStatsTest.swift */,
+				BA09EC1B25DB23B200E4D12E /* RAMStatsTest.swift */,
+			);
+			path = InnoSystemMonitorTests;
 			sourceTree = "<group>";
 		};
 		F365236125CC07EF00DD6204 /* Stats */ = {
@@ -115,6 +150,24 @@
 			productReference = BA219C6D25C83AC100E73048 /* InnoSystemMonitor.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BA89AF2A25DACAAA00F75DF9 /* InnoSystemMonitorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA89AF3225DACAAB00F75DF9 /* Build configuration list for PBXNativeTarget "InnoSystemMonitorTests" */;
+			buildPhases = (
+				BA89AF2725DACAAA00F75DF9 /* Sources */,
+				BA89AF2825DACAAA00F75DF9 /* Frameworks */,
+				BA89AF2925DACAAA00F75DF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA89AF3125DACAAB00F75DF9 /* PBXTargetDependency */,
+			);
+			name = InnoSystemMonitorTests;
+			productName = InnoSystemMonitorTests;
+			productReference = BA89AF2B25DACAAA00F75DF9 /* InnoSystemMonitorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -126,6 +179,10 @@
 				TargetAttributes = {
 					BA219C6C25C83AC100E73048 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					BA89AF2A25DACAAA00F75DF9 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = BA219C6C25C83AC100E73048;
 					};
 				};
 			};
@@ -143,6 +200,7 @@
 			projectRoot = "";
 			targets = (
 				BA219C6C25C83AC100E73048 /* InnoSystemMonitor */,
+				BA89AF2A25DACAAA00F75DF9 /* InnoSystemMonitorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -154,6 +212,13 @@
 			files = (
 				BA219C7525C83AC300E73048 /* Assets.xcassets in Resources */,
 				BA219C7825C83AC300E73048 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA89AF2925DACAAA00F75DF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +242,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BA89AF2725DACAAA00F75DF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA09EC1C25DB23B200E4D12E /* RAMStatsTest.swift in Sources */,
+				BA89AF3A25DACB4000F75DF9 /* CPUStatsTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA89AF3125DACAAB00F75DF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA219C6C25C83AC100E73048 /* InnoSystemMonitor */;
+			targetProxy = BA89AF3025DACAAB00F75DF9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BA219C7625C83AC300E73048 /* Main.storyboard */ = {
@@ -344,6 +426,44 @@
 			};
 			name = Release;
 		};
+		BA89AF3325DACAAB00F75DF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = InnoSystemMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tutorials.InnoSystemMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InnoSystemMonitor.app/Contents/MacOS/InnoSystemMonitor";
+			};
+			name = Debug;
+		};
+		BA89AF3425DACAAB00F75DF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = InnoSystemMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tutorials.InnoSystemMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InnoSystemMonitor.app/Contents/MacOS/InnoSystemMonitor";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -361,6 +481,15 @@
 			buildConfigurations = (
 				BA219C7E25C83AC300E73048 /* Debug */,
 				BA219C7F25C83AC300E73048 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA89AF3225DACAAB00F75DF9 /* Build configuration list for PBXNativeTarget "InnoSystemMonitorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA89AF3325DACAAB00F75DF9 /* Debug */,
+				BA89AF3425DACAAB00F75DF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
