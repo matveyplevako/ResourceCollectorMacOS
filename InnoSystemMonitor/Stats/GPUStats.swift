@@ -1,20 +1,20 @@
 import Foundation
 import Cocoa
 
-class GPUStats {
+class GPUStats: ReaderProtocol {
 	public struct GPUs {
 		public var list: [GPU_Info] = []
 	}
 	
 	public struct GPU_Info {
 		public let IOClass: String
-		public let GPUmodel: String
+		public let gpuModel: String
 
 		public var utilization: Double? = nil
 		
 		init(IOClass: String, model: String) {
 			self.IOClass = IOClass
-			self.GPUmodel = model
+			self.gpuModel = model
 		}
 	}
 	
@@ -37,25 +37,25 @@ class GPUStats {
 			}
 			
 			let ioClass = IOClass.lowercased()
-			var GPUmodel: String = ""
+			var gpuModel: String = ""
 			
 			let utilization: Int? = stats["Device Utilization %"] as? Int ?? stats["GPU Activity(%)"] as? Int ?? nil
 			
 			if ioClass == "nvaccelerator" || ioClass.contains("nvidia") {
-				GPUmodel = "Nvidia Graphics"
+				gpuModel = "Nvidia Graphics"
 			} else if ioClass.contains("amd") {
-				GPUmodel = "AMD Graphics"
+				gpuModel = "AMD Graphics"
 			} else {
-				GPUmodel = "Intel Graphics"
+				gpuModel = "Intel Graphics"
 			}
 			
-			if self.gpus.list.first(where: { $0.GPUmodel == GPUmodel }) == nil {
+			if self.gpus.list.first(where: { $0.gpuModel == gpuModel }) == nil {
 				self.gpus.list.append(GPU_Info(
 					IOClass: IOClass,
-					model: GPUmodel
+					model: gpuModel
 				))
 			}
-			guard let idx = self.gpus.list.firstIndex(where: { $0.GPUmodel == GPUmodel }) else {
+			guard let idx = self.gpus.list.firstIndex(where: { $0.gpuModel == gpuModel }) else {
 				return
 			}
 			if let value = utilization {

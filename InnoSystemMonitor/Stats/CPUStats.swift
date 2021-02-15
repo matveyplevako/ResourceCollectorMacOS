@@ -16,7 +16,7 @@ public struct TopProcess {
 	}
 }
 
-class CPUStats {
+class CPUStats: ReaderProtocol {
 	public func read(callback: @escaping ([TopProcess]) -> Void) {
 		let task = Process()
 		task.launchPath = "/bin/ps"

@@ -14,7 +14,7 @@ public struct RAM_Usage {
 }
 
 
-public class RAMStats {
+public class RAMStats: ReaderProtocol {
 	
 	public func read(callback: @escaping ([TopProcess]) -> ()) {
 		let numberOfProcesses = 10
