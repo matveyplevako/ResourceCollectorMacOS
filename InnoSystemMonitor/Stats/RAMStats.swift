@@ -15,6 +15,23 @@ public struct RAM_Usage {
 
 
 public class RAMStats: ReaderProtocol {
+    
+    internal func parseProcessLine(_ line: String) -> (String, Int, Double) {
+        var str = line.trimmingCharacters(in: .whitespaces)
+        let pidString = str.findAndCrop(pattern: "^\\d+")
+        let usageString = str.suffix(5)
+        var command = str.replacingOccurrences(of: pidString, with: "")
+        command = command.replacingOccurrences(of: usageString, with: "")
+        
+        if let regex = try? NSRegularExpression(pattern: " (\\+|\\-)*$", options: .caseInsensitive) {
+            command = regex.stringByReplacingMatches(in: command, options: [], range: NSRange(location: 0, length:  command.count), withTemplate: "")
+        }
+        
+        let pid = Int(pidString.filter("01234567890.".contains)) ?? 0
+        let usage = Double(usageString.filter("01234567890.".contains)) ?? 0
+        
+        return (command, pid, usage)
+    }
 	
 	public func read(callback: @escaping ([TopProcess]) -> ()) {
 		let numberOfProcesses = 10
@@ -48,18 +65,8 @@ public class RAMStats: ReaderProtocol {
 		var processes: [TopProcess] = []
 		output.enumerateLines { (line, _) -> () in
 			if line.matches("^\\d+ +.* +\\d+[A-Z]*\\+?\\-? *$") {
-				var str = line.trimmingCharacters(in: .whitespaces)
-				let pidString = str.findAndCrop(pattern: "^\\d+")
-				let usageString = str.suffix(5)
-				var command = str.replacingOccurrences(of: pidString, with: "")
-				command = command.replacingOccurrences(of: usageString, with: "")
-				
-				if let regex = try? NSRegularExpression(pattern: " (\\+|\\-)*$", options: .caseInsensitive) {
-					command = regex.stringByReplacingMatches(in: command, options: [], range: NSRange(location: 0, length:  command.count), withTemplate: "")
-				}
-				
-				let pid = Int(pidString.filter("01234567890.".contains)) ?? 0
-				let usage = Double(usageString.filter("01234567890.".contains)) ?? 0
+                var command: String, pid: Int, usage: Double
+                (command, pid, usage) = self.parseProcessLine(line)
 
 				var name: String? = nil
 				if let app = NSRunningApplication(processIdentifier: pid_t(pid) ) {

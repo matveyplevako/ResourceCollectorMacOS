@@ -17,6 +17,18 @@ public struct TopProcess {
 }
 
 class CPUStats: ReaderProtocol {
+    
+    internal func parseProcessLine(_ line: String) -> (String, Int, Double) {
+        var str = line.trimmingCharacters(in: .whitespaces)
+        let pidString = str.findAndCrop(pattern: "^\\d+")
+        let usageString = str.findAndCrop(pattern: "^[0-9,.]+ ")
+        let command = str.trimmingCharacters(in: .whitespaces)
+        
+        let pid = Int(pidString) ?? 0
+        let usage = Double(usageString.replacingOccurrences(of: ",", with: ".")) ?? 0
+        return (command, pid, usage)
+    }
+    
 	public func read(callback: @escaping ([TopProcess]) -> Void) {
 		let task = Process()
 		task.launchPath = "/bin/ps"
@@ -48,13 +60,8 @@ class CPUStats: ReaderProtocol {
 		var processes: [TopProcess] = []
 		output.enumerateLines { (line, stop) -> () in
 			if index != 0 {
-				var str = line.trimmingCharacters(in: .whitespaces)
-				let pidString = str.findAndCrop(pattern: "^\\d+")
-				let usageString = str.findAndCrop(pattern: "^[0-9,.]+ ")
-				let command = str.trimmingCharacters(in: .whitespaces)
-				
-				let pid = Int(pidString) ?? 0
-				let usage = Double(usageString.replacingOccurrences(of: ",", with: ".")) ?? 0
+                var command: String, pid: Int, usage: Double
+                (command, pid, usage) = self.parseProcessLine(line)
 				
 				var name: String? = nil
 				
