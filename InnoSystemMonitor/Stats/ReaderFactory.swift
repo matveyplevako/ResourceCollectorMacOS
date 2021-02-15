@@ -16,9 +16,11 @@ enum ReaderType {
     case CPU
     case GPU
     case RAM
+    case Battery
 }
 
 //  Factory create reader of special type
+
 class ReaderFactory {
     static func createReader<T: ReaderProtocol>(ofType type: ReaderType) -> T {
         switch type {
@@ -28,6 +30,8 @@ class ReaderFactory {
             return GPUStats() as! T
         case .RAM:
             return RAMStats() as! T
+        case .Battery:
+            return BatteryStats() as! T
         }
     }
 }
