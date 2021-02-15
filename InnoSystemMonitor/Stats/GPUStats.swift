@@ -9,7 +9,7 @@ class GPUStats: ReaderProtocol {
 	public struct GPU_Info {
 		public let IOClass: String
 		public let gpuModel: String
-
+		
 		public var utilization: Double? = nil
 		
 		init(IOClass: String, model: String) {

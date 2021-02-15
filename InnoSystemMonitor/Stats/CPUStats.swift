@@ -7,7 +7,7 @@ public struct TopProcess {
 	public var command: String
 	public var name: String?
 	public var usage: Double
-	
+
 	public init(pid: Int, command: String, name: String?, usage: Double) {
 		self.pid = pid
 		self.command = command
