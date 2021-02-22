@@ -142,7 +142,7 @@ class ViewController: NSViewController {
     
     @IBAction func refreshFansStats(_ sender: Any) {
         var textDescription = ""
-        
+
         readerFans.read { fans in
             fans.forEach { fan in
                 textDescription += "Id: \(fan.id)\n"
@@ -154,8 +154,28 @@ class ViewController: NSViewController {
                 textDescription += "Value: \(fan.value)\n"
             }
         }
-        
+
         self.statsText.stringValue = textDescription
+        
+        
+        print("\n\n")
+        
+//        let reader: SensorsStats = ReaderFactory.createReader(ofType: .Sensors)
+//
+//        reader.read { sensor in
+//            sensor.forEach { sensorT in
+//                print(sensorT)
+//            }
+//        }
+        
+//        var store: Store = Store()
+//        var smc: SMCService = SMCService()
+//
+//        var fans = Fans(&store, &smc)
+        
+//        fans.
+        
+//        fans.
     }
     
     @IBAction func refreshNetworkStats(_ sender: Any) {

@@ -24,6 +24,9 @@
 		F3F1FA3025E3E0BA00C16AD2 /* FansStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1FA2F25E3E0BA00C16AD2 /* FansStats.swift */; };
 		F3F1FA3425E3E25100C16AD2 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1FA3325E3E25100C16AD2 /* Store.swift */; };
 		F3F1FA3825E3EEF000C16AD2 /* NetworkStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1FA3725E3EEF000C16AD2 /* NetworkStats.swift */; };
+		F3F1FA5625E4045E00C16AD2 /* SensorsStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1FA5525E4045E00C16AD2 /* SensorsStats.swift */; };
+		F3F1FA5B25E4049800C16AD2 /* SensorsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1FA5A25E4049800C16AD2 /* SensorsModel.swift */; };
+		F3F1FA6425E40DA300C16AD2 /* Fan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1FA6325E40DA300C16AD2 /* Fan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		F3F1FA2F25E3E0BA00C16AD2 /* FansStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FansStats.swift; sourceTree = "<group>"; };
 		F3F1FA3325E3E25100C16AD2 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		F3F1FA3725E3EEF000C16AD2 /* NetworkStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStats.swift; sourceTree = "<group>"; };
+		F3F1FA5525E4045E00C16AD2 /* SensorsStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorsStats.swift; sourceTree = "<group>"; };
+		F3F1FA5A25E4049800C16AD2 /* SensorsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorsModel.swift; sourceTree = "<group>"; };
+		F3F1FA6325E40DA300C16AD2 /* Fan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +135,9 @@
 				F365236425CC07EF00DD6204 /* GPUStats.swift */,
 				BA1518F625CC1F260005A9A2 /* RAMStats.swift */,
 				F39803AB25DA729400B0CEA5 /* BatteryStats.swift */,
-				F3F1FA2F25E3E0BA00C16AD2 /* FansStats.swift */,
+				F3F1FA6225E40D8600C16AD2 /* Fans */,
 				F3F1FA3725E3EEF000C16AD2 /* NetworkStats.swift */,
+				F3F1FA5925E4048300C16AD2 /* Sensors */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -145,6 +152,24 @@
 				F3F1FA3325E3E25100C16AD2 /* Store.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		F3F1FA5925E4048300C16AD2 /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				F3F1FA5525E4045E00C16AD2 /* SensorsStats.swift */,
+				F3F1FA5A25E4049800C16AD2 /* SensorsModel.swift */,
+			);
+			path = Sensors;
+			sourceTree = "<group>";
+		};
+		F3F1FA6225E40D8600C16AD2 /* Fans */ = {
+			isa = PBXGroup;
+			children = (
+				F3F1FA2F25E3E0BA00C16AD2 /* FansStats.swift */,
+				F3F1FA6325E40DA300C16AD2 /* Fan.swift */,
+			);
+			path = Fans;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,12 +278,15 @@
 				F39803AC25DA729400B0CEA5 /* BatteryStats.swift in Sources */,
 				BA219C7125C83AC100E73048 /* AppDelegate.swift in Sources */,
 				F3F1FA3025E3E0BA00C16AD2 /* FansStats.swift in Sources */,
+				F3F1FA5625E4045E00C16AD2 /* SensorsStats.swift in Sources */,
 				F365236925CC07EF00DD6204 /* SMCDataType.swift in Sources */,
+				F3F1FA6425E40DA300C16AD2 /* Fan.swift in Sources */,
 				F39803A725DA690A00B0CEA5 /* ReaderFactory.swift in Sources */,
 				F365236825CC07EF00DD6204 /* GPUStats.swift in Sources */,
 				F3F1FA3825E3EEF000C16AD2 /* NetworkStats.swift in Sources */,
 				F365236725CC07EF00DD6204 /* Helpres.swift in Sources */,
 				BA1518F125CC0C8C0005A9A2 /* Extensions.swift in Sources */,
+				F3F1FA5B25E4049800C16AD2 /* SensorsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
