@@ -17,6 +17,8 @@ enum ReaderType {
     case GPU
     case RAM
     case Battery
+    case Fans
+    case Network
 }
 
 //  Factory create reader of special type
@@ -32,6 +34,11 @@ class ReaderFactory {
             return RAMStats() as! T
         case .Battery:
             return BatteryStats() as! T
+        case .Fans:
+            var smc: SMCService = SMCService()
+            return FansStats(smc: &smc) as! T
+        case .Network:
+            return NetworkStats() as! T
         }
     }
 }

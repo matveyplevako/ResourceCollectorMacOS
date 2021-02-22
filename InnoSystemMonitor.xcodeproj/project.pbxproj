@@ -21,6 +21,9 @@
 		F365236925CC07EF00DD6204 /* SMCDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236525CC07EF00DD6204 /* SMCDataType.swift */; };
 		F39803A725DA690A00B0CEA5 /* ReaderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39803A625DA690A00B0CEA5 /* ReaderFactory.swift */; };
 		F39803AC25DA729400B0CEA5 /* BatteryStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39803AB25DA729400B0CEA5 /* BatteryStats.swift */; };
+		F3F1FA3025E3E0BA00C16AD2 /* FansStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1FA2F25E3E0BA00C16AD2 /* FansStats.swift */; };
+		F3F1FA3425E3E25100C16AD2 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1FA3325E3E25100C16AD2 /* Store.swift */; };
+		F3F1FA3825E3EEF000C16AD2 /* NetworkStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1FA3725E3EEF000C16AD2 /* NetworkStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		F365236525CC07EF00DD6204 /* SMCDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMCDataType.swift; sourceTree = "<group>"; };
 		F39803A625DA690A00B0CEA5 /* ReaderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderFactory.swift; sourceTree = "<group>"; };
 		F39803AB25DA729400B0CEA5 /* BatteryStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryStats.swift; sourceTree = "<group>"; };
+		F3F1FA2F25E3E0BA00C16AD2 /* FansStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FansStats.swift; sourceTree = "<group>"; };
+		F3F1FA3325E3E25100C16AD2 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		F3F1FA3725E3EEF000C16AD2 /* NetworkStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,8 @@
 				F365236425CC07EF00DD6204 /* GPUStats.swift */,
 				BA1518F625CC1F260005A9A2 /* RAMStats.swift */,
 				F39803AB25DA729400B0CEA5 /* BatteryStats.swift */,
+				F3F1FA2F25E3E0BA00C16AD2 /* FansStats.swift */,
+				F3F1FA3725E3EEF000C16AD2 /* NetworkStats.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 				F365236325CC07EF00DD6204 /* Helpres.swift */,
 				F365236525CC07EF00DD6204 /* SMCDataType.swift */,
 				BA1518F025CC0C8C0005A9A2 /* Extensions.swift */,
+				F3F1FA3325E3E25100C16AD2 /* Store.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -240,11 +249,14 @@
 				BA1518F725CC1F260005A9A2 /* RAMStats.swift in Sources */,
 				F365236625CC07EF00DD6204 /* CPUStats.swift in Sources */,
 				BA219C7325C83AC100E73048 /* ViewController.swift in Sources */,
+				F3F1FA3425E3E25100C16AD2 /* Store.swift in Sources */,
 				F39803AC25DA729400B0CEA5 /* BatteryStats.swift in Sources */,
 				BA219C7125C83AC100E73048 /* AppDelegate.swift in Sources */,
+				F3F1FA3025E3E0BA00C16AD2 /* FansStats.swift in Sources */,
 				F365236925CC07EF00DD6204 /* SMCDataType.swift in Sources */,
 				F39803A725DA690A00B0CEA5 /* ReaderFactory.swift in Sources */,
 				F365236825CC07EF00DD6204 /* GPUStats.swift in Sources */,
+				F3F1FA3825E3EEF000C16AD2 /* NetworkStats.swift in Sources */,
 				F365236725CC07EF00DD6204 /* Helpres.swift in Sources */,
 				BA1518F125CC0C8C0005A9A2 /* Extensions.swift in Sources */,
 			);

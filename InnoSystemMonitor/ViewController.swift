@@ -13,12 +13,16 @@ class ViewController: NSViewController {
     var readerGPU: GPUStats
     var readerRAM: RAMStats
     var readerBattery: BatteryStats
+    var readerFans: FansStats
+    var readerNet: NetworkStats
         
     required init?(coder aDecoder: NSCoder) {
         self.readerCPU = ReaderFactory.createReader(ofType: .CPU)
         self.readerGPU = ReaderFactory.createReader(ofType: .GPU)
         self.readerRAM = ReaderFactory.createReader(ofType: .RAM)
         self.readerBattery = ReaderFactory.createReader(ofType: .Battery)
+        self.readerFans = ReaderFactory.createReader(ofType: .Fans)
+        self.readerNet = ReaderFactory.createReader(ofType: .Network)
         
         super.init(coder: aDecoder)
     }
@@ -131,6 +135,40 @@ class ViewController: NSViewController {
             textDescription += "Time to charge: \(batteryUsage.timeToCharge)\n"
             textDescription += "Time to discharge: \(batteryUsage.timeToEmpty)\n"
             textDescription += "Voltage: \(batteryUsage.voltage)"
+        }
+        
+        self.statsText.stringValue = textDescription
+    }
+    
+    @IBAction func refreshFansStats(_ sender: Any) {
+        var textDescription = ""
+        
+        readerFans.read { fans in
+            fans.forEach { fan in
+                textDescription += "Id: \(fan.id)\n"
+                textDescription += "Name: \(fan.name)\n"
+                textDescription += "Value: \(fan.formattedValue)\n"
+                textDescription += "Max Speed: \(fan.maxSpeed)\n"
+                textDescription += "Min Speed: \(fan.minSpeed)\n"
+                textDescription += "State: \(fan.state)\n"
+                textDescription += "Value: \(fan.value)\n"
+            }
+        }
+        
+        self.statsText.stringValue = textDescription
+    }
+    
+    @IBAction func refreshNetworkStats(_ sender: Any) {
+        var textDescription = ""
+        
+        readerNet.read { networkUsage in
+            textDescription += "Bandwidth upload: \(Double(networkUsage.bandwidth.upload).readableSize()) / sec\n"
+            textDescription += "Bandwidth download: \(Double(networkUsage.bandwidth.download).readableSize()) / sec\n"
+            
+            textDescription += "Total upload: \(Double(networkUsage.total.upload).readableSize()) / sec\n"
+            textDescription += "Total download: \(Double(networkUsage.total.upload).readableSize()) / sec\n"
+            guard let laddr = networkUsage.laddr else { return }
+            textDescription += "IP adderes: \(laddr)\n"
         }
         
         self.statsText.stringValue = textDescription
