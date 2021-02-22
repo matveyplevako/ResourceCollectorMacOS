@@ -94,6 +94,7 @@
 		BA219C6F25C83AC100E73048 /* InnoSystemMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				F3C69D5125DBCD1000EEC822 /* Utils */,
 				F365236125CC07EF00DD6204 /* Stats */,
 				BA219C7025C83AC100E73048 /* AppDelegate.swift */,
 				BA219C7225C83AC100E73048 /* ViewController.swift */,
@@ -119,15 +120,22 @@
 			isa = PBXGroup;
 			children = (
 				F365236225CC07EF00DD6204 /* CPUStats.swift */,
-				F365236325CC07EF00DD6204 /* Helpres.swift */,
 				F365236425CC07EF00DD6204 /* GPUStats.swift */,
-				F365236525CC07EF00DD6204 /* SMCDataType.swift */,
-				BA1518F025CC0C8C0005A9A2 /* Extensions.swift */,
 				BA1518F625CC1F260005A9A2 /* RAMStats.swift */,
-				F39803A625DA690A00B0CEA5 /* ReaderFactory.swift */,
 				F39803AB25DA729400B0CEA5 /* BatteryStats.swift */,
 			);
 			path = Stats;
+			sourceTree = "<group>";
+		};
+		F3C69D5125DBCD1000EEC822 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F39803A625DA690A00B0CEA5 /* ReaderFactory.swift */,
+				F365236325CC07EF00DD6204 /* Helpres.swift */,
+				F365236525CC07EF00DD6204 /* SMCDataType.swift */,
+				BA1518F025CC0C8C0005A9A2 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
