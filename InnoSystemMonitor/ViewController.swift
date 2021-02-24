@@ -138,6 +138,7 @@ class ViewController: NSViewController {
                 textDescription += "Min Speed: \(fan.minSpeed)\n"
                 textDescription += "State: \(fan.state)\n"
                 textDescription += "Value: \(fan.value)\n"
+				textDescription += "\n"
             }
         }
         
@@ -171,6 +172,7 @@ class ViewController: NSViewController {
                 textDescription += "Group: \(sensor.group)\n"
                 textDescription += "Key: \(sensor.key)\n"
                 textDescription += "Unit: \(sensor.unit)\n"
+				textDescription += "\n"
             }
         }
         self.statsText.stringValue = textDescription
