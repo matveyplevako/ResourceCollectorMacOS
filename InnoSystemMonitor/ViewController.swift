@@ -167,11 +167,12 @@ class ViewController: NSViewController {
         readerSensors.read { sensors in
             sensors.forEach { sensor in
                 textDescription += "Name: \(sensor.name)\n"
-                textDescription += "State: \(sensor.state)\n"
+//                textDescription += "State: \(sensor.state)\n"
                 textDescription += "Type: \(sensor.type)\n"
                 textDescription += "Group: \(sensor.group)\n"
                 textDescription += "Key: \(sensor.key)\n"
                 textDescription += "Unit: \(sensor.unit)\n"
+				textDescription += "Value: \(sensor.value)\n"
 				textDescription += "\n"
             }
         }
