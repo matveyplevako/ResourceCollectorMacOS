@@ -110,7 +110,22 @@ class ViewController: NSViewController {
         
         self.statsText.stringValue = textDescription
     }
-    
+	
+//	is not working refreshing
+//	@IBAction func refreshFansTapped(_ sender: Any) {
+//		readerFans.read { fans in
+//			fans.forEach { fan in
+//				print("Id: \(fan.id)\n")
+//				print("Name: \(fan.name)\n")
+//				print("Value: \(fan.formattedValue)\n")
+//				print("Max Speed: \(fan.maxSpeed)\n")
+//				print("Min Speed: \(fan.minSpeed)\n")
+//				print("State: \(fan.state)\n")
+//				print("Value: \(fan.value)\n")
+//			}
+//		}
+//	}
+
     @IBAction func refreshFansStats(_ sender: Any) {
         var textDescription = ""
 
