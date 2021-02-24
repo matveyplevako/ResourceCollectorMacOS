@@ -58,13 +58,13 @@ class SensorsStats: ReaderProtocol {
     
     public func read(callback: @escaping ([Sensor_t]) -> Void) {
         for i in 0..<self.list.count {
-            do {
-                if let newValue = try self.smc.pointee.getValue(self.list[i].key) {
-                    self.list[i].value = newValue
-                }
-            } catch {
-                
-            }
+//            do {
+//                if let newValue = try self.smc.pointee.getValue(self.list[i].key) {
+//                    self.list[i].value = newValue
+//                }
+//            } catch {
+//
+//            }
         }
         callback(self.list)
     }

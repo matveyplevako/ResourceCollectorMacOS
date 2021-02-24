@@ -27,9 +27,9 @@ public class FansStats: ReaderProtocol {
     public func read(callback: @escaping ([Fan]) -> Void) {
         for i in 0..<self.list.count {
             
-            if let value = smc.pointee.getValue("F\(self.list[i].id)Ac") {
-                self.list[i].value = value
-            }
+//            if let value = smc.pointee.getValue("F\(self.list[i].id)Ac") {
+//                self.list[i].value = value
+//            }
         }
         callback(self.list)
     }
