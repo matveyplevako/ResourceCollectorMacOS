@@ -1,10 +1,3 @@
-//
-//  SensorsStats.swift
-//  InnoSystemMonitor
-//
-//  Created by Иван Абрамов on 19.02.2021.
-//
-
 import Foundation
 
 class SensorsStats: ReaderProtocol {

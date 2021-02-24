@@ -1,17 +1,6 @@
-//
-//  NetStats.swift
-//  InnoSystemMonitor
-//
-//  Created by Иван Абрамов on 18.02.2021.
-//
-
 import Foundation
 import Cocoa
-//import StatsKit
-//import ModuleKit
 import SystemConfiguration
-//import Reachability
-//import os.log
 import CoreWLAN
 
 struct ipResponse: Decodable {

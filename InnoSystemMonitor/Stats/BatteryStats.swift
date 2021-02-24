@@ -1,10 +1,3 @@
-//
-//  BatteryStats.swift
-//  InnoSystemMonitor
-//
-//  Created by Иван Абрамов on 15.02.2021.
-//
-
 import Foundation
 import IOKit
 import Cocoa

@@ -1,9 +1,3 @@
-//
-//  ReaderFactory.swift
-//  InnoSystemMonitor
-//
-//  Created by Иван Абрамов on 10.02.2021.
-//
 import Foundation
 
 protocol ReaderProtocol {
