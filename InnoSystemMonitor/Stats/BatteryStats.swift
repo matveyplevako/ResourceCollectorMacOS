@@ -5,7 +5,7 @@ import os.log
 import IOKit.ps
 
 public protocol value_t {
-    var widget_value: Double { get }
+	
 }
 
 struct Battery_Usage: value_t {
@@ -25,12 +25,7 @@ struct Battery_Usage: value_t {
     
     var timeToEmpty: Int = 0
     var timeToCharge: Int = 0
-    
-    public var widget_value: Double {
-        get {
-            return self.level
-        }
-    }
+
 }
 
 public class BatteryStats: ReaderProtocol {

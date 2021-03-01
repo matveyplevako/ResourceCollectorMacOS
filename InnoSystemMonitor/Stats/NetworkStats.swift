@@ -23,8 +23,6 @@ public struct Network_Usage: value_t {
         
         self.laddr = nil
     }
-    
-    public var widget_value: Double = 0
 }
 
 public class NetworkStats: ReaderProtocol {

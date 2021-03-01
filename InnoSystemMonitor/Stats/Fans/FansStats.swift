@@ -25,8 +25,7 @@ public class FansStats: ReaderProtocol {
     }
     
     public func read(callback: @escaping ([Fan]) -> Void) {
+//		insert your update value here)
         callback(self.list)
     }
-    
-    var callbackHandler: (T?) -> Void = {_ in }
 }
