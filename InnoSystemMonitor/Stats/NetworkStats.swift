@@ -3,19 +3,6 @@ import Cocoa
 import SystemConfiguration
 import CoreWLAN
 
-struct ipResponse: Decodable {
-    var ip: String
-    var country: String
-    var cc: String
-}
-
-public enum Network_t: String {
-    case wifi
-    case ethernet
-    case bluetooth
-    case other
-}
-
 public struct Network_Process {
     var time: Date = Date()
     var name: String = ""
@@ -23,12 +10,6 @@ public struct Network_Process {
     var download: Int = 0
     var upload: Int = 0
     var icon: NSImage? = nil
-}
-
-public struct Network_interface {
-    var displayName: String = ""
-    var BSDName: String = ""
-    var address: String = ""
 }
 
 public typealias Bandwidth = (upload: Int64, download: Int64)
@@ -39,10 +20,6 @@ public struct Network_Usage: value_t {
     var laddr: String? = nil // local ip
     var raddr: String? = nil // remote ip
     
-    var interface: Network_interface? = nil
-    var connectionType: Network_t? = nil
-    
-    var countryCode: String? = nil
     var ssid: String? = nil
     
     mutating func reset() {
@@ -50,11 +27,7 @@ public struct Network_Usage: value_t {
         
         self.laddr = nil
         self.raddr = nil
-        
-        self.interface = nil
-        self.connectionType = nil
-        
-        self.countryCode = nil
+	
         self.ssid = nil
     }
     
@@ -64,7 +37,6 @@ public struct Network_Usage: value_t {
 public class NetworkStats: ReaderProtocol {
     public var store: UnsafePointer<Store>? = nil
     
-//    private var reachability: Reachability? = nil
     private var usage: Network_Usage = Network_Usage()
     
     private var primaryInterface: String {
@@ -89,27 +61,6 @@ public class NetworkStats: ReaderProtocol {
         get {
             return self.store?.pointee.string(key: "Network_reader", defaultValue: "interface") ?? "interface"
         }
-    }
-    
-    public func setup() {
-//        do {
-//            self.reachability = try Reachability()
-//            try self.reachability!.startNotifier()
-//        } catch let error {
-//            os_log(.error, log: log, "initialize Reachability error %s", "\(error)")
-//        }
-        
-//        self.reachability!.whenReachable = { _ in
-//            if self.active {
-//                self.getDetails()
-//            }
-//        }
-//        self.reachability!.whenUnreachable = { _ in
-//            if self.active {
-//                self.usage.reset()
-//                self.callback(self.usage)
-//            }
-//        }
     }
     
     public func read(callback: @escaping (Network_Usage) -> Void) {
@@ -179,6 +130,7 @@ public class NetworkStats: ReaderProtocol {
         do {
             try task.run()
         } catch let error {
+//			yoho one more error catched))
             return (0, 0)
         }
         
@@ -222,34 +174,6 @@ public class NetworkStats: ReaderProtocol {
         DispatchQueue.global(qos: .background).async {
             self.getPublicIP()
         }
-        
-        if self.interfaceID != "" {
-            for interface in SCNetworkInterfaceCopyAll() as NSArray {
-                if  let bsdName = SCNetworkInterfaceGetBSDName(interface as! SCNetworkInterface),
-                    bsdName as String == self.interfaceID,
-                    let type = SCNetworkInterfaceGetInterfaceType(interface as! SCNetworkInterface),
-                    let displayName = SCNetworkInterfaceGetLocalizedDisplayName(interface as! SCNetworkInterface),
-                    let address = SCNetworkInterfaceGetHardwareAddressString(interface as! SCNetworkInterface) {
-                    self.usage.interface = Network_interface(displayName: displayName as String, BSDName: bsdName as String, address: address as String)
-                    
-                    switch type {
-                    case kSCNetworkInterfaceTypeEthernet:
-                        self.usage.connectionType = .ethernet
-                    case kSCNetworkInterfaceTypeIEEE80211, kSCNetworkInterfaceTypeWWAN:
-                        self.usage.connectionType = .wifi
-                    case kSCNetworkInterfaceTypeBluetooth:
-                        self.usage.connectionType = .bluetooth
-                    default:
-                        self.usage.connectionType = .other
-                    }
-                }
-            }
-        }
-        
-        if let interface = CWWiFiClient.shared().interface(), self.usage.connectionType == .wifi {
-            self.usage.ssid = interface.ssid()
-            self.usage.countryCode = interface.countryCode()
-        }
     }
     
     private func getLocalIP(_ pointer: UnsafeMutablePointer<ifaddrs>) -> String? {
@@ -273,7 +197,7 @@ public class NetworkStats: ReaderProtocol {
                 self.usage.raddr = try String(contentsOf: url)
             }
         } catch let error {
-//            os_log(.error, log: log, "get public ip %s", "\(error)")
+//			yoho catched error!)
         }
     }
     
@@ -303,11 +227,6 @@ public class ProcessReader {
     init(_ title: String, store: UnsafePointer<Store>) {
         self.title = title
         self.store = store
-//        super.init()
-    }
-    
-    public func setup() {
-//        self.popup = true
     }
     
     public func read() {

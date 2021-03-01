@@ -23,23 +23,6 @@ class ViewController: NSViewController {
 		}
 	}
 	
-	@IBAction func refreshBatteryTapped(_ sender: Any) {
-		systemMonitorStats.readerBattery.read { batteryUsage in
-			print("ACwatts: \(batteryUsage.ACwatts)")
-			print("Amperage: \(batteryUsage.amperage)")
-			print("Cycles: \(batteryUsage.cycles)")
-			print("Health: \(batteryUsage.health)")
-			print("Is charged: \(batteryUsage.isCharged)")
-			print("Is charging: \(batteryUsage.isCharging)")
-			print("Battery level: \(batteryUsage.level)")
-			print("Power Source: \(batteryUsage.powerSource)")
-			print("Tempersture: \(batteryUsage.temperature)")
-			print("Time to charge: \(batteryUsage.timeToCharge)")
-			print("Time to discharge: \(batteryUsage.timeToEmpty)")
-			print("Voltage: \(batteryUsage.voltage)")
-		}
-	}
-	
 	@IBAction func refreshCPUStats(_ sender: Any) {
 		var textDescription = ""
 		
@@ -98,21 +81,6 @@ class ViewController: NSViewController {
 		
 		self.statsText.stringValue = textDescription
 	}
-	
-	//	is not working refreshing
-	//	@IBAction func refreshFansTapped(_ sender: Any) {
-	//		readerFans.read { fans in
-	//			fans.forEach { fan in
-	//				print("Id: \(fan.id)\n")
-	//				print("Name: \(fan.name)\n")
-	//				print("Value: \(fan.formattedValue)\n")
-	//				print("Max Speed: \(fan.maxSpeed)\n")
-	//				print("Min Speed: \(fan.minSpeed)\n")
-	//				print("State: \(fan.state)\n")
-	//				print("Value: \(fan.value)\n")
-	//			}
-	//		}
-	//	}
 	
 	@IBAction func refreshFansStats(_ sender: Any) {
 		var textDescription = ""
