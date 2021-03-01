@@ -179,7 +179,6 @@ public class NetworkStats: ReaderProtocol {
         do {
             try task.run()
         } catch let error {
-//            os_log(.error, log: log, "read bandwidth from processes %s", "\(error)")
             return (0, 0)
         }
         
