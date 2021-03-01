@@ -1,9 +1,3 @@
-//
-//  ReaderFactory.swift
-//  InnoSystemMonitor
-//
-//  Created by Иван Абрамов on 10.02.2021.
-//
 import Foundation
 
 protocol ReaderProtocol {
@@ -19,6 +13,7 @@ enum ReaderType {
     case Battery
     case Fans
     case Network
+    case Sensors
 }
 
 //  Factory create reader of special type
@@ -39,6 +34,9 @@ class ReaderFactory {
             return FansStats(smc: &smc) as! T
         case .Network:
             return NetworkStats() as! T
+        case .Sensors:
+            var smc: SMCService = SMCService()
+            return SensorsStats(&smc) as! T
         }
     }
 }

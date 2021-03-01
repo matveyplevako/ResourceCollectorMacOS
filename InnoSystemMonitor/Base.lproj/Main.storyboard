@@ -710,16 +710,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="100" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CjW-YE-fVQ">
-                                <rect key="frame" x="154" y="35" width="492" height="200"/>
+                                <rect key="frame" x="154" y="19" width="492" height="232"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="32" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wyr-r8-g7d">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="180"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="212"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvx-x2-aiv">
-                                                <rect key="frame" x="0.0" y="0.0" width="71" height="180"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="71" height="212"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W1T-hJ-em0">
-                                                        <rect key="frame" x="-3" y="153" width="78" height="32"/>
+                                                        <rect key="frame" x="-7" y="185" width="85" height="32"/>
                                                         <buttonCell key="cell" type="push" title="CPU" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GqU-bj-DHW">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -729,7 +729,7 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-rX-FYo">
-                                                        <rect key="frame" x="-3" y="121" width="78" height="32"/>
+                                                        <rect key="frame" x="-7" y="153" width="85" height="32"/>
                                                         <buttonCell key="cell" type="push" title="GPU" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ere-DI-cjr">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -739,7 +739,7 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bA9-MW-4Rr">
-                                                        <rect key="frame" x="-3" y="89" width="78" height="32"/>
+                                                        <rect key="frame" x="-7" y="121" width="85" height="32"/>
                                                         <buttonCell key="cell" type="push" title="RAM" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sgP-1u-7tt">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -749,7 +749,7 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8cz-pu-UqK">
-                                                        <rect key="frame" x="-3" y="57" width="78" height="32"/>
+                                                        <rect key="frame" x="-7" y="89" width="85" height="32"/>
                                                         <buttonCell key="cell" type="push" title="Battery" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yep-sB-nb4">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -758,18 +758,8 @@
                                                             <action selector="refreshBatteryStats:" target="XfG-lQ-9wD" id="z1S-Dj-FBu"/>
                                                         </connections>
                                                     </button>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sx4-Iu-Ipu">
-                                                        <rect key="frame" x="-3" y="25" width="78" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="Fans" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ju3-5u-8RY">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="refreshFansStats:" target="XfG-lQ-9wD" id="Q0Y-GM-36w"/>
-                                                        </connections>
-                                                    </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jjn-oi-EZv">
-                                                        <rect key="frame" x="-7" y="-7" width="85" height="32"/>
+                                                        <rect key="frame" x="-7" y="57" width="85" height="32"/>
                                                         <buttonCell key="cell" type="push" title="Network" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DBx-6h-ne6">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -778,10 +768,32 @@
                                                             <action selector="refreshNetworkStats:" target="XfG-lQ-9wD" id="3So-oA-xoS"/>
                                                         </connections>
                                                     </button>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sx4-Iu-Ipu">
+                                                        <rect key="frame" x="-7" y="25" width="85" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Fans" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ju3-5u-8RY">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="refreshFansStats:" target="XfG-lQ-9wD" id="Q0Y-GM-36w"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hv6-8H-48k">
+                                                        <rect key="frame" x="-6" y="-7" width="83" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Sensors" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="G9H-ay-lfW">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="refreshSensorsStats:" target="XfG-lQ-9wD" id="5NO-bq-emO"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="8cz-pu-UqK" firstAttribute="width" secondItem="o3f-rX-FYo" secondAttribute="width" id="AIb-8p-gP5"/>
+                                                    <constraint firstItem="Sx4-Iu-Ipu" firstAttribute="width" secondItem="jjn-oi-EZv" secondAttribute="width" id="CrG-r1-QDA"/>
                                                     <constraint firstItem="8cz-pu-UqK" firstAttribute="width" secondItem="bA9-MW-4Rr" secondAttribute="width" id="HOX-aq-A5y"/>
+                                                    <constraint firstItem="Hv6-8H-48k" firstAttribute="width" secondItem="jjn-oi-EZv" secondAttribute="width" multiplier="0.971831" id="If5-gb-YTV"/>
                                                     <constraint firstItem="Sx4-Iu-Ipu" firstAttribute="width" secondItem="8cz-pu-UqK" secondAttribute="width" id="cyr-6J-43o"/>
                                                     <constraint firstItem="8cz-pu-UqK" firstAttribute="width" secondItem="W1T-hJ-em0" secondAttribute="width" id="pQL-Je-B9I"/>
                                                 </constraints>
@@ -792,8 +804,10 @@
                                                     <integer value="1000"/>
                                                     <integer value="1000"/>
                                                     <integer value="1000"/>
+                                                    <integer value="1000"/>
                                                 </visibilityPriorities>
                                                 <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
@@ -811,7 +825,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cas-pQ-uPn">
-                                        <rect key="frame" x="169" y="91" width="325" height="18"/>
+                                        <rect key="frame" x="169" y="106" width="325" height="20"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Empty stats" id="9SL-8l-msM">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>

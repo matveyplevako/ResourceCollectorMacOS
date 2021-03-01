@@ -1,10 +1,3 @@
-//
-//  Store.swift
-//  InnoSystemMonitor
-//
-//  Created by Иван Абрамов on 22.02.2021.
-//
-
 import Foundation
 import Cocoa
 

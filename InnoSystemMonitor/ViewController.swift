@@ -4,10 +4,7 @@ import AppKit
 
 class ViewController: NSViewController {
     
-    @IBOutlet weak var energyLabel: NSTextField!
-    @IBOutlet weak var memoryLabel: NSTextField!
-    @IBOutlet weak var gpulabel: NSTextField!
-    @IBOutlet weak var cpuLabel: NSTextField!
+    @IBOutlet weak var statsText: NSTextField!
     
     var readerCPU: CPUStats
     var readerGPU: GPUStats
@@ -15,6 +12,7 @@ class ViewController: NSViewController {
     var readerBattery: BatteryStats
     var readerFans: FansStats
     var readerNet: NetworkStats
+    var readerSensors: SensorsStats
         
     required init?(coder aDecoder: NSCoder) {
         self.readerCPU = ReaderFactory.createReader(ofType: .CPU)
@@ -23,6 +21,7 @@ class ViewController: NSViewController {
         self.readerBattery = ReaderFactory.createReader(ofType: .Battery)
         self.readerFans = ReaderFactory.createReader(ofType: .Fans)
         self.readerNet = ReaderFactory.createReader(ofType: .Network)
+        self.readerSensors = ReaderFactory.createReader(ofType: .Sensors)
         
         super.init(coder: aDecoder)
     }
@@ -36,35 +35,7 @@ class ViewController: NSViewController {
         }
     }
     
-    @IBAction func refreshButtonTapped(_ sender: Any) {
-		print("\n")
-		
-//        readerCPU.read { topProcesses in
-//            topProcesses.sorted { processA, processB in
-//                processA.usage > processB.usage
-//            }.prefix(10).forEach { process in
-//                print("Name: \(process.name ?? process.command)\t CPU Usage: \(process.usage)%")
-//            }
-//        }
-        
-        print("\n")
-        
-//        readerGPU.read { gpuS in
-//            gpuS.list.forEach { gpu in
-//                print("Name: \(gpu.gpuModel)\t GPU Usage: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))%")
-//            }
-//        }
-        
-        print("\n")
-        
-//        readerRAM.read { topProcesses in
-//            topProcesses.forEach { process in
-//                print("Name: \(process.name ?? process.command) RAM Usage: \(process.usage.readableSize())")
-//            }
-//        }
-        
-        print("\n")
-        
+    @IBAction func refreshBatteryTapped(_ sender: Any) {
         readerBattery.read { batteryUsage in
             print("ACwatts: \(batteryUsage.ACwatts)")
             print("Amperage: \(batteryUsage.amperage)")
@@ -139,10 +110,25 @@ class ViewController: NSViewController {
         
         self.statsText.stringValue = textDescription
     }
-    
+	
+//	is not working refreshing
+//	@IBAction func refreshFansTapped(_ sender: Any) {
+//		readerFans.read { fans in
+//			fans.forEach { fan in
+//				print("Id: \(fan.id)\n")
+//				print("Name: \(fan.name)\n")
+//				print("Value: \(fan.formattedValue)\n")
+//				print("Max Speed: \(fan.maxSpeed)\n")
+//				print("Min Speed: \(fan.minSpeed)\n")
+//				print("State: \(fan.state)\n")
+//				print("Value: \(fan.value)\n")
+//			}
+//		}
+//	}
+
     @IBAction func refreshFansStats(_ sender: Any) {
         var textDescription = ""
-        
+
         readerFans.read { fans in
             fans.forEach { fan in
                 textDescription += "Id: \(fan.id)\n"
@@ -152,10 +138,11 @@ class ViewController: NSViewController {
                 textDescription += "Min Speed: \(fan.minSpeed)\n"
                 textDescription += "State: \(fan.state)\n"
                 textDescription += "Value: \(fan.value)\n"
+				textDescription += "\n"
             }
         }
         
-        self.statsText.stringValue = textDescription
+        self.statsText.stringValue =  textDescription
     }
     
     @IBAction func refreshNetworkStats(_ sender: Any) {
@@ -174,7 +161,23 @@ class ViewController: NSViewController {
         self.statsText.stringValue = textDescription
     }
     
-    @IBOutlet weak var statsText: NSTextField!
+    @IBAction func refreshSensorsStats(_ sender: Any) {
+        var textDescription = ""
+        
+        readerSensors.read { sensors in
+            sensors.forEach { sensor in
+                textDescription += "Name: \(sensor.name)\n"
+//                textDescription += "State: \(sensor.state)\n"
+                textDescription += "Type: \(sensor.type)\n"
+                textDescription += "Group: \(sensor.group)\n"
+                textDescription += "Key: \(sensor.key)\n"
+                textDescription += "Unit: \(sensor.unit)\n"
+				textDescription += "Value: \(sensor.value)\n"
+				textDescription += "\n"
+            }
+        }
+        self.statsText.stringValue = textDescription
+    }
     
     
     func createTimer(withTimeInterval timeInterval: TimeInterval, andClojure clojure: @escaping () -> Void) {
