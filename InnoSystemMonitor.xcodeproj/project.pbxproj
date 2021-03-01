@@ -15,6 +15,7 @@
 		BA219C7525C83AC300E73048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA219C7425C83AC300E73048 /* Assets.xcassets */; };
 		BA219C7825C83AC300E73048 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA219C7625C83AC300E73048 /* Main.storyboard */; };
 		BA89AF3A25DACB4000F75DF9 /* CPUStatsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89AF3925DACB4000F75DF9 /* CPUStatsTest.swift */; };
+		BAD6500A25ECDF7A008C3CAE /* SystemMonitorStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD6500925ECDF7A008C3CAE /* SystemMonitorStats.swift */; };
 		F365236625CC07EF00DD6204 /* CPUStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236225CC07EF00DD6204 /* CPUStats.swift */; };
 		F365236725CC07EF00DD6204 /* Helpres.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236325CC07EF00DD6204 /* Helpres.swift */; };
 		F365236825CC07EF00DD6204 /* GPUStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365236425CC07EF00DD6204 /* GPUStats.swift */; };
@@ -53,6 +54,7 @@
 		BA89AF2B25DACAAA00F75DF9 /* InnoSystemMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InnoSystemMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA89AF2F25DACAAB00F75DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA89AF3925DACB4000F75DF9 /* CPUStatsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUStatsTest.swift; sourceTree = "<group>"; };
+		BAD6500925ECDF7A008C3CAE /* SystemMonitorStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMonitorStats.swift; sourceTree = "<group>"; };
 		F365236225CC07EF00DD6204 /* CPUStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUStats.swift; sourceTree = "<group>"; };
 		F365236325CC07EF00DD6204 /* Helpres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpres.swift; sourceTree = "<group>"; };
 		F365236425CC07EF00DD6204 /* GPUStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUStats.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				F3C69D5125DBCD1000EEC822 /* Utils */,
 				F365236125CC07EF00DD6204 /* Stats */,
+				BAD6500925ECDF7A008C3CAE /* SystemMonitorStats.swift */,
 				BA219C7025C83AC100E73048 /* AppDelegate.swift */,
 				BA219C7225C83AC100E73048 /* ViewController.swift */,
 				BA219C7425C83AC300E73048 /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 				BA1518F725CC1F260005A9A2 /* RAMStats.swift in Sources */,
 				F365236625CC07EF00DD6204 /* CPUStats.swift in Sources */,
 				BA219C7325C83AC100E73048 /* ViewController.swift in Sources */,
+				BAD6500A25ECDF7A008C3CAE /* SystemMonitorStats.swift in Sources */,
 				F3F1FA3425E3E25100C16AD2 /* Store.swift in Sources */,
 				F39803AC25DA729400B0CEA5 /* BatteryStats.swift in Sources */,
 				BA219C7125C83AC100E73048 /* AppDelegate.swift in Sources */,

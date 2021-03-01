@@ -16,7 +16,7 @@ public struct TopProcess {
 	}
 }
 
-class CPUStats: ReaderProtocol {
+public class CPUStats: ReaderProtocol {
     
     internal func parseProcessLine(_ line: String) -> (String, Int, Double) {
         var str = line.trimmingCharacters(in: .whitespaces)

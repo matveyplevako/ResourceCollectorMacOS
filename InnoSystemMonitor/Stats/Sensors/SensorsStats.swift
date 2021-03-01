@@ -1,6 +1,6 @@
 import Foundation
 
-class SensorsStats: ReaderProtocol {
+public class SensorsStats: ReaderProtocol {
     internal var list: [Sensor_t] = []
     private var smc: UnsafePointer<SMCService>
     

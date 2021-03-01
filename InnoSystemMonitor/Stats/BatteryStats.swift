@@ -33,7 +33,7 @@ struct Battery_Usage: value_t {
     }
 }
 
-class BatteryStats: ReaderProtocol {
+public class BatteryStats: ReaderProtocol {
     private var service: io_connect_t = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleSmartBattery"))
     
     private var source: CFRunLoopSource?

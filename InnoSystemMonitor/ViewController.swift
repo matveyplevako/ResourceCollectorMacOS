@@ -6,22 +6,10 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var statsText: NSTextField!
     
-    var readerCPU: CPUStats
-    var readerGPU: GPUStats
-    var readerRAM: RAMStats
-    var readerBattery: BatteryStats
-    var readerFans: FansStats
-    var readerNet: NetworkStats
-    var readerSensors: SensorsStats
+    let systemMonitorStats: SystemMonitorStats
         
     required init?(coder aDecoder: NSCoder) {
-        self.readerCPU = ReaderFactory.createReader(ofType: .CPU)
-        self.readerGPU = ReaderFactory.createReader(ofType: .GPU)
-        self.readerRAM = ReaderFactory.createReader(ofType: .RAM)
-        self.readerBattery = ReaderFactory.createReader(ofType: .Battery)
-        self.readerFans = ReaderFactory.createReader(ofType: .Fans)
-        self.readerNet = ReaderFactory.createReader(ofType: .Network)
-        self.readerSensors = ReaderFactory.createReader(ofType: .Sensors)
+        self.systemMonitorStats = SystemMonitorStats()
         
         super.init(coder: aDecoder)
     }
@@ -36,7 +24,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func refreshBatteryTapped(_ sender: Any) {
-        readerBattery.read { batteryUsage in
+        systemMonitorStats.readerBattery.read { batteryUsage in
             print("ACwatts: \(batteryUsage.ACwatts)")
             print("Amperage: \(batteryUsage.amperage)")
             print("Cycles: \(batteryUsage.cycles)")
@@ -55,7 +43,7 @@ class ViewController: NSViewController {
     @IBAction func refreshCPUStats(_ sender: Any) {
         var textDescription = ""
         
-        readerCPU.read { topProcesses in
+        systemMonitorStats.readerCPU.read { topProcesses in
             topProcesses.sorted { processA, processB in
                 processA.usage > processB.usage
             }.prefix(10).forEach { process in
@@ -69,7 +57,7 @@ class ViewController: NSViewController {
     @IBAction func refreshGPUStats(_ sender: Any) {
         var textDescription = ""
         
-        readerGPU.read { gpuS in
+        systemMonitorStats.readerGPU.read { gpuS in
             gpuS.list.forEach { gpu in
                 textDescription += "Name: \(gpu.gpuModel)\t GPU Usage: \(NSString(format: "%.2f", (gpu.utilization ?? 0) * 100))% \n"
             }
@@ -81,7 +69,7 @@ class ViewController: NSViewController {
     @IBAction func refreshRAMStats(_ sender: Any) {
         var textDescription = ""
         
-        readerRAM.read { topProcesses in
+        systemMonitorStats.readerRAM.read { topProcesses in
             topProcesses.forEach { process in
                 textDescription += "Name: \(process.name ?? process.command) RAM Usage: \(process.usage.readableSize())\n"
             }
@@ -93,7 +81,7 @@ class ViewController: NSViewController {
     @IBAction func refreshBatteryStats(_ sender: Any) {
         var textDescription = ""
         
-        readerBattery.read { batteryUsage in
+        systemMonitorStats.readerBattery.read { batteryUsage in
             textDescription += "ACwatts: \(batteryUsage.ACwatts)\n"
             textDescription += "Amperage: \(batteryUsage.amperage)\n"
             textDescription += "Cycles: \(batteryUsage.cycles)\n"
@@ -129,7 +117,7 @@ class ViewController: NSViewController {
     @IBAction func refreshFansStats(_ sender: Any) {
         var textDescription = ""
 
-        readerFans.read { fans in
+        systemMonitorStats.readerFans.read { fans in
             fans.forEach { fan in
                 textDescription += "Id: \(fan.id)\n"
                 textDescription += "Name: \(fan.name)\n"
@@ -148,7 +136,7 @@ class ViewController: NSViewController {
     @IBAction func refreshNetworkStats(_ sender: Any) {
         var textDescription = ""
         
-        readerNet.read { networkUsage in
+        systemMonitorStats.readerNet.read { networkUsage in
             textDescription += "Bandwidth upload: \(Double(networkUsage.bandwidth.upload).readableSize()) / sec\n"
             textDescription += "Bandwidth download: \(Double(networkUsage.bandwidth.download).readableSize()) / sec\n"
             
@@ -164,7 +152,7 @@ class ViewController: NSViewController {
     @IBAction func refreshSensorsStats(_ sender: Any) {
         var textDescription = ""
         
-        readerSensors.read { sensors in
+        systemMonitorStats.readerSensors.read { sensors in
             sensors.forEach { sensor in
                 textDescription += "Name: \(sensor.name)\n"
 //                textDescription += "State: \(sensor.state)\n"

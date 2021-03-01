@@ -61,7 +61,7 @@ public struct Network_Usage: value_t {
     public var widget_value: Double = 0
 }
 
-class NetworkStats: ReaderProtocol {
+public class NetworkStats: ReaderProtocol {
     public var store: UnsafePointer<Store>? = nil
     
 //    private var reachability: Reachability? = nil
