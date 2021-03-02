@@ -1,6 +1,6 @@
 import Foundation
 
-class SensorsStats: ReaderProtocol {
+public class SensorsStats: ReaderProtocol {
     internal var list: [Sensor_t] = []
     private var smc: UnsafePointer<SMCService>
     
@@ -56,16 +56,7 @@ class SensorsStats: ReaderProtocol {
         self.list = list
     }
     
-    public func read(callback: @escaping ([Sensor_t]) -> Void) {
-        for i in 0..<self.list.count {
-//            do {
-//                if let newValue = try self.smc.pointee.getValue(self.list[i].key) {
-//                    self.list[i].value = newValue
-//                }
-//            } catch {
-//
-//            }
-        }
+	func read(callback: @escaping ([Sensor_t]) -> Void) {
         callback(self.list)
     }
 }

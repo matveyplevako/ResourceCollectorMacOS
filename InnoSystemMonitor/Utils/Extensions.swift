@@ -97,14 +97,3 @@ extension UnitTemperature {
         return measureFormatter.string(from: measurement).hasSuffix("C") ? .celsius : .fahrenheit
     }
 }
-
-public extension Notification.Name {
-    static let toggleSettings = Notification.Name("toggleSettings")
-    static let toggleModule = Notification.Name("toggleModule")
-    static let openModuleSettings = Notification.Name("openModuleSettings")
-    static let settingsAppear = Notification.Name("settingsAppear")
-    static let switchWidget = Notification.Name("switchWidget")
-    static let checkForUpdates = Notification.Name("checkForUpdates")
-    static let changeCronInterval = Notification.Name("changeCronInterval")
-    static let clickInSettings = Notification.Name("clickInSettings")
-}

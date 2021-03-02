@@ -86,7 +86,6 @@ struct Sensor_t {
     }
 }
 
-// List of keys: https://github.com/acidanthera/VirtualSMC/blob/master/Docs/SMCSensorKeys.txt
 let SensorsList: [Sensor_t] = [
     /// Temperature
     Sensor_t(key: "TA%P", name: "Ambient %", group: SensorGroup.Sensor.rawValue, type: SensorType.Temperature.rawValue),

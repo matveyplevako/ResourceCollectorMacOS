@@ -5,7 +5,7 @@ import os.log
 import IOKit.ps
 
 public protocol value_t {
-    var widget_value: Double { get }
+	
 }
 
 struct Battery_Usage: value_t {
@@ -25,15 +25,10 @@ struct Battery_Usage: value_t {
     
     var timeToEmpty: Int = 0
     var timeToCharge: Int = 0
-    
-    public var widget_value: Double {
-        get {
-            return self.level
-        }
-    }
+
 }
 
-class BatteryStats: ReaderProtocol {
+public class BatteryStats: ReaderProtocol {
     private var service: io_connect_t = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleSmartBattery"))
     
     private var source: CFRunLoopSource?
@@ -42,36 +37,16 @@ class BatteryStats: ReaderProtocol {
     private var usage: Battery_Usage = Battery_Usage()
     
     func start() {
-//        self.active = true
         let context = UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque())
         
         self.source = IOPSNotificationCreateRunLoopSource({ (context) in
-//            guard let ctx = context else {
-//                return
-//            }
-            
-//            let watcher = Unmanaged<UsageReader>.fromOpaque(ctx).takeUnretainedValue()
-//            if watcher.active {
-//                watcher.read()
-//            }
         }, context).takeRetainedValue()
         
         self.loop = RunLoop.current.getCFRunLoop()
         CFRunLoopAddSource(self.loop, source, .defaultMode)
-        
-//        self.read()
     }
-    
-//    public override func stop() {
-//        guard let runLoop = loop, let source = source else {
-//            return
-//        }
-//
-//        self.active = false
-//        CFRunLoopRemoveSource(runLoop, source, .defaultMode)
-//    }
-    
-    func read(callback: @escaping (Battery_Usage) -> ()) {
+
+	func read(callback: @escaping (Battery_Usage) -> ()) {
         let psInfo = IOPSCopyPowerSourcesInfo().takeRetainedValue()
         let psList = IOPSCopyPowerSourcesList(psInfo).takeRetainedValue() as [CFTypeRef]
         
@@ -159,87 +134,3 @@ class BatteryStats: ReaderProtocol {
         return nil
     }
 }
-
-//public class ProcessReader: Reader<[TopProcess]> {
-//    private let store: UnsafePointer<Store>
-//    private let title: String
-//
-//    private var task: Process = Process()
-//    private var initialized: Bool = false
-//    private var paused: Bool = false
-//
-//    private var numberOfProcesses: Int {
-//        get {
-//            return self.store.pointee.int(key: "\(self.title)_processes", defaultValue: 8)
-//        }
-//    }
-//
-//    init(_ title: String, store: UnsafePointer<Store>) {
-//        self.title = title
-//        self.store = store
-//        super.init()
-//    }
-//
-//    public override func setup() {
-//        self.popup = true
-//
-//        let pipe = Pipe()
-//        self.task.standardOutput = pipe
-//        self.task.launchPath = "/usr/bin/top"
-//        self.task.arguments = ["-o", "power", "-n", "\(self.numberOfProcesses)", "-stats", "pid,command,power"]
-//
-//        pipe.fileHandleForReading.readabilityHandler = { (fileHandle) -> Void in
-//            let output = String(decoding: fileHandle.availableData, as: UTF8.self)
-//            var processes: [TopProcess] = []
-//
-//            output.enumerateLines { (line, _) -> () in
-//                if line.matches("^\\d* +.+ \\d*.?\\d*$") {
-//                    var str = line.trimmingCharacters(in: .whitespaces)
-//
-//                    let pidString = str.findAndCrop(pattern: "^\\d+")
-//                    let usageString = str.findAndCrop(pattern: " +[0-9]+.*[0-9]*$")
-//                    let command = str.trimmingCharacters(in: .whitespaces)
-//
-//                    let pid = Int(pidString) ?? 0
-//                    guard let usage = Double(usageString.filter("01234567890.".contains)) else {
-//                        return
-//                    }
-//
-//                    var name: String? = nil
-//                    var icon: NSImage? = nil
-//                    if let app = NSRunningApplication(processIdentifier: pid_t(pid) ) {
-//                        name = app.localizedName ?? nil
-//                        icon = app.icon
-//                    }
-//
-//                    processes.append(TopProcess(pid: pid, command: command, name: name, usage: usage))
-//                }
-//            }
-//
-//            if processes.count != 0 {
-////                self.callback(processes.prefix(self.numberOfProcesses).reversed().reversed())
-//            }
-//        }
-//    }
-    
-//    func start() {
-//        if !self.initialized {
-//            self.initialized = true
-//            return
-//        }
-//
-//        if self.task.isRunning && self.paused {
-//            self.paused = !self.task.resume()
-//        } else {
-//            self.task.launch()
-//        }
-//    }
-//
-//    func pause() {
-//        self.paused = self.task.suspend()
-//    }
-//
-//    func stop() {
-//        self.task.interrupt()
-//    }
-//}
