@@ -16,6 +16,10 @@ public struct RAM_Usage {
 
 public class RAMStats: ReaderProtocol {
     
+    /// Parse command line arguments
+    /// - Parameter line: command line to parse
+    /// - Returns: parsed info about process: command, pid and usage
+    
     internal func parseProcessLine(_ line: String) -> (String, Int, Double) {
         var str = line.trimmingCharacters(in: .whitespaces)
         let pidString = str.findAndCrop(pattern: "^\\d+")
@@ -33,6 +37,9 @@ public class RAMStats: ReaderProtocol {
         return (command, pid, usage)
     }
 	
+    /// Read information about RAM usage
+    /// - Parameter callback: returns list of RAM's usage for each process
+    
 	public func read(callback: @escaping ([TopProcess]) -> ()) {
 		let numberOfProcesses = 10
 		

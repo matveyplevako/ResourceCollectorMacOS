@@ -2,12 +2,19 @@ import Foundation
 import os.log
 import AppKit
 
+/// Process model
+/// - Parameters:
+///   - pid: process's pid
+///   - command: command to call process
+///   - name: name of process
+///   - usage: CPU usage by process
+
 public struct TopProcess {
 	public var pid: Int
 	public var command: String
 	public var name: String?
 	public var usage: Double
-	
+    
 	public init(pid: Int, command: String, name: String?, usage: Double) {
 		self.pid = pid
 		self.command = command
@@ -17,6 +24,10 @@ public struct TopProcess {
 }
 
 public class CPUStats: ReaderProtocol {
+    
+    /// Parse command line arguments
+    /// - Parameter line: command line to parse
+    /// - Returns: parsed info about process: command, pid and usage
     
     internal func parseProcessLine(_ line: String) -> (String, Int, Double) {
         var str = line.trimmingCharacters(in: .whitespaces)
@@ -28,6 +39,9 @@ public class CPUStats: ReaderProtocol {
         let usage = Double(usageString.replacingOccurrences(of: ",", with: ".")) ?? 0
         return (command, pid, usage)
     }
+    
+    /// Read information about CPU usage
+    /// - Parameter callback: returns list of CPU's usage for each process
     
 	public func read(callback: @escaping ([TopProcess]) -> Void) {
 		let task = Process()

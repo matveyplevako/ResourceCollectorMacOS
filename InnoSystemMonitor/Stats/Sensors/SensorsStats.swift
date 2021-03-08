@@ -56,6 +56,9 @@ public class SensorsStats: ReaderProtocol {
         self.list = list
     }
     
+    /// Read information about Sensors usage
+    /// - Parameter callback: returns list of Sensror's usage for each Sensor
+    
 	func read(callback: @escaping ([Sensor_t]) -> Void) {
         callback(self.list)
     }

@@ -6,6 +6,9 @@ protocol ReaderProtocol {
     func read(callback: @escaping (T) -> Void)
 }
 
+
+/// Description: enum of reader types
+
 enum ReaderType {
     case CPU
     case GPU
@@ -16,7 +19,7 @@ enum ReaderType {
     case Sensors
 }
 
-//  Factory create reader of special type
+/// Description: Factory create reader of special type
 
 class ReaderFactory {
     static func createReader<T: ReaderProtocol>(ofType type: ReaderType) -> T {

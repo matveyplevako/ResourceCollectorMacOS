@@ -3,6 +3,8 @@ import Cocoa
 import SystemConfiguration
 import CoreWLAN
 
+/// Description: Network process model
+
 public struct Network_Process {
     var time: Date = Date()
     var name: String = ""
@@ -11,6 +13,9 @@ public struct Network_Process {
 }
 
 public typealias Bandwidth = (upload: Int64, download: Int64)
+
+
+/// Description: Network stats model
 
 public struct Network_Usage: value_t {
     var bandwidth: Bandwidth = (0, 0)
@@ -36,6 +41,9 @@ public class NetworkStats: ReaderProtocol {
         }
     }
     
+    /// Read information about Network usage
+    /// - Parameter callback: returns  Network's usage
+    
     public func read(callback: @escaping (Network_Usage) -> Void) {
         let current: Bandwidth = self.reader == "interface" ? self.readInterfaceBandwidth() : self.readProcessBandwidth()
         
@@ -58,6 +66,9 @@ public class NetworkStats: ReaderProtocol {
         self.usage.bandwidth.upload = current.upload
         self.usage.bandwidth.download = current.download
     }
+    
+    /// Description: get interface bandwidth
+    /// - Returns: Bandwidth model
     
     private func readInterfaceBandwidth() -> Bandwidth {
         var interfaceAddresses: UnsafeMutablePointer<ifaddrs>? = nil
@@ -85,6 +96,10 @@ public class NetworkStats: ReaderProtocol {
         
         return (totalUpload, totalDownload)
     }
+    
+    
+    /// Description: get proceses bandwidth
+    /// - Returns: Bandwidth model
     
     private func readProcessBandwidth() -> Bandwidth {
         let task = Process()
@@ -135,6 +150,11 @@ public class NetworkStats: ReaderProtocol {
         return (totalUpload, totalDownload)
     }
     
+    
+    /// Description: get local IP address
+    /// - Parameter pointer: IP adress pointer
+    /// - Returns: string representation of IP address
+    
     private func getLocalIP(_ pointer: UnsafeMutablePointer<ifaddrs>) -> String? {
         var addr = pointer.pointee.ifa_addr.pointee
         
@@ -147,6 +167,11 @@ public class NetworkStats: ReaderProtocol {
         
         return String(cString: ip)
     }
+    
+    
+    /// Description
+    /// - Parameter pointer:  IP adress pointer
+    /// - Returns: upload and download speeds
     
     private func getBytesInfo(_ pointer: UnsafeMutablePointer<ifaddrs>) -> (upload: Int64, download: Int64)? {
         let addr = pointer.pointee.ifa_addr.pointee

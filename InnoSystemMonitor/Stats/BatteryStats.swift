@@ -46,6 +46,9 @@ public class BatteryStats: ReaderProtocol {
         CFRunLoopAddSource(self.loop, source, .defaultMode)
     }
 
+    /// Read information about Battery usage
+    /// - Parameter callback: returns different stats for Battery
+    
 	func read(callback: @escaping (Battery_Usage) -> ()) {
         let psInfo = IOPSCopyPowerSourcesInfo().takeRetainedValue()
         let psList = IOPSCopyPowerSourcesList(psInfo).takeRetainedValue() as [CFTypeRef]

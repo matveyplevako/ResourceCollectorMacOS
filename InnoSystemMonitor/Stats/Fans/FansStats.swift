@@ -24,6 +24,9 @@ public class FansStats: ReaderProtocol {
         }
     }
     
+    /// Read information about Fan usage
+    /// - Parameter callback: returns list of Fan's usage for each Fan
+    
     public func read(callback: @escaping ([Fan]) -> Void) {
 //		insert your update value here)
         callback(self.list)

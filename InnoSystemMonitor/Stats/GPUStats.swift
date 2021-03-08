@@ -20,6 +20,10 @@ public class GPUStats: ReaderProtocol {
 	
 	private var gpus: GPUs = GPUs()
 	
+    
+    /// Read information about GPU usage
+    /// - Parameter callback: returns list of GPU's usage for each GPU
+    
 	public func read(callback: @escaping (GPUs) -> Void) {
 		guard let accelerators = fetchIOService(kIOAcceleratorClassName) else {
 			return
