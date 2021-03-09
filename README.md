@@ -50,7 +50,7 @@ stats.readerCPU.read { topProcesses in
 
 🎩 Matvey Plevako - m.plevako@innopolis.university
 
-💂 Yurii Zarubin - y.zarubin@innopolis.university
+👨🏻‍🎨 Yurii Zarubin - y.zarubin@innopolis.university
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
