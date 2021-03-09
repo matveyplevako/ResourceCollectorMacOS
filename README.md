@@ -22,15 +22,18 @@ You can retrieve up-to-date technical data any time, like process load, CPU temp
 import SystemMonitorStats
 
 let stats = SystemMonitorStats()
+var statsDescription = ""
 
 systemMonitorStats.readerRAM.read { topProcesses in
 			topProcesses.forEach { process in
-				textDescription += """
+				statsDescription += """
 				    Name: \(process.name ?? process.command) \
 				    RAM Usage: \(process.usage.readableSize())
                     		"""
 			}
 		}
+
+print(statsDescription)
 ```
 
 
