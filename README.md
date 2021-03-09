@@ -47,7 +47,9 @@ stats.readerCPU.read { topProcesses in
 ## 👨🏻‍💻 Contributors 
 
 🤠 Ivan Abramov – I.abramov@innopolis.university
+
 🎩 Matvey Plevako - m.plevako@innopolis.university
+
 💂 Yuri Zarubin - y.zarubin@innopolis.university
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
