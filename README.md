@@ -13,7 +13,7 @@ You can retrieve up-to-date technical data any time, like process load, CPU temp
 ## ⚙️ Installation 
 
 1. Clone repository and integrate to your project
-2. Add key `App Sandbox : NO` to entitlemts
+2. Add key `App Sandbox : NO` to entitlements
 
 ## 🕹 Usage example
 
