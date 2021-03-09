@@ -46,7 +46,7 @@ stats.readerCPU.read { topProcesses in
 
 ## 👨🏻‍💻 Contributors 
 
-🤠 Ivan Abramov – I.abramov@innopolis.university
+🥷🏻 Ivan Abramov – I.abramov@innopolis.university
 
 🎩 Matvey Plevako - m.plevako@innopolis.university
 
