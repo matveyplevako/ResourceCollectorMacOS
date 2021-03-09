@@ -23,12 +23,14 @@ import SystemMonitorStats
 
 let stats = SystemMonitorStats()
 
-stats.readerCPU.read { topProcesses in
+systemMonitorStats.readerRAM.read { topProcesses in
 			topProcesses.forEach { process in
-				textDescription += """Name: \(process.name ?? process.command)
-				RAM Usage: \(process.usage.readableSize())\n"""
+				textDescription += """
+                    Name: \(process.name ?? process.command) \
+                    RAM Usage: \(process.usage.readableSize())
+                    """
 			}
-}
+		}
 ```
 
 
