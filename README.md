@@ -13,7 +13,7 @@ You can retrieve up-to-date technical data any time, like process load, CPU temp
 ## ⚙️ Installation 
 
 1. Clone repository and integrate to your project
-2. Add key `App Sandbox : NO` to entitlemts and set value to 
+2. Add key `App Sandbox : NO` to entitlemts
 
 ## 🕹 Usage example
 
@@ -50,7 +50,7 @@ stats.readerCPU.read { topProcesses in
 
 🎩 Matvey Plevako - m.plevako@innopolis.university
 
-💂 Yuri Zarubin - y.zarubin@innopolis.university
+💂 Yurii Zarubin - y.zarubin@innopolis.university
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
