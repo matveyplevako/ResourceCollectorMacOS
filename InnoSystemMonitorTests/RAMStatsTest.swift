@@ -1,10 +1,3 @@
-//
-//  RAMStatsTest.swift
-//  InnoSystemMonitorTests
-//
-//  Created by Matvey Plevako on 16.02.2021.
-//
-
 import XCTest
 @testable import InnoSystemMonitor
 

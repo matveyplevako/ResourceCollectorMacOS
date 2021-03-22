@@ -1,10 +1,3 @@
-//
-//  CPUStatsTest.swift
-//  InnoSystemMonitorTests
-//
-//  Created by Matvey Plevako on 15.02.2021.
-//
-
 import XCTest
 @testable import InnoSystemMonitor
 
